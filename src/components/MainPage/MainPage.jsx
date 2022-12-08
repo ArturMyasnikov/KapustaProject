@@ -13,15 +13,15 @@ export default function MainPage() {
 						You can log in with your Google Account:
 					</p>
 					<button type="button" className={s.googleBtn}>
-						<svg
+						<svg // todo move to the separate component
 							stroke="currentColor"
 							fill="currentColor"
-							stroke-width="0"
+							strokeWidth="0"
 							version="1.1"
 							x="0px"
 							y="0px"
 							viewBox="0 0 48 48"
-							enable-background="new 0 0 48 48"
+							enableBackground="new 0 0 48 48"
 							height="18"
 							width="18"
 							xmlns="http://www.w3.org/2000/svg"
@@ -70,13 +70,13 @@ export default function MainPage() {
 							Password :
 							<input
 								className={s.input}
-								type="email"
+								type="email" // todo change to type "password"
 								name="password"
 								placeholder="password"
 								required
 							/>
 						</label>
-						<div className={s.btnWrapper}>
+						<div className={s.btnWrapper}> {/* todo move to separate component */}
 							<button type="submit" className={s.modalBtn}>
 								Log In
 							</button>
