@@ -1,0 +1,161 @@
+.modalContainer {
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+	width: 280px;
+}
+
+.form {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+.footerIcon {
+	width: 83px;
+	height: 89px;
+	position: absolute;
+	left: 10px;
+	top: 408px;
+	background-image: url(/src/Icons/mobFooterImg.svg);
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+
+@media screen and (min-width: 768px) {
+	.modalContainer {
+		width: 426px;
+	}
+
+	.footerIcon {
+		width: 183px;
+		height: 142px;
+		left: -17%;
+		top: 214px;
+		background-image: url(/src/Icons/tabletFooterImg.svg);
+	}
+}
+
+@media screen and (min-width: 1280px) {
+	.footerIcon {
+		top: 76px;
+		left: -50%;
+	}
+}
+
+.modal {
+	font-size: 12px;
+	color: var(--main-color);
+
+	display: flex;
+	position: absolute;
+	top: -84px;
+	flex-direction: column;
+	align-items: center;
+	padding: 40px 20px;
+
+	background-color: #fff;
+	border-radius: 30px;
+	box-shadow: 5px 10px 20px rgba(170, 178, 197, 0.4);
+}
+
+.input {
+	width: 100%;
+	margin-top: 8px;
+	border-radius: 30px;
+
+	padding: 20px 17px;
+
+	background-color: #f6f7fb;
+	border: none;
+}
+
+.label {
+	margin-bottom: 24px;
+}
+
+.googleText {
+	text-align: center;
+	margin-bottom: 28px;
+}
+
+.errorMassage {
+	font-size: 10px;
+	letter-spacing: 0.04em;
+
+	color: #eb5757;
+}
+
+.googleBtn {
+	width: 120px;
+	height: 40px;
+	justify-content: center;
+	align-items: center;
+	display: flex;
+	border-radius: 26px;
+	margin-bottom: 32px;
+	border: none;
+	color: var(--black);
+	background-color: var(--background-gray);
+}
+
+.googleBtn:hover {
+	background-color: var(--orange);
+	cursor: pointer;
+	color: #fff;
+}
+
+.googleBtnText {
+	margin-left: 10px;
+
+	font-family: 'Roboto';
+	font-weight: 500;
+}
+
+.loginText {
+	margin-bottom: 20px;
+}
+
+.btnWrapper {
+	display: flex;
+	justify-content: space-between;
+}
+
+.modalBtn {
+	width: 116px;
+	height: 44px;
+	padding: 12px 14px;
+	border-radius: 16px;
+	border: none;
+	color: inherit;
+	font-size: 12px;
+	font-weight: 700;
+	letter-spacing: 0.02em;
+	text-transform: uppercase;
+}
+
+.modalBtn login {
+	margin-left: 8px;
+}
+
+.modalBtn:hover {
+	background-color: var(--orange);
+	cursor: pointer;
+	color: #fff;
+}
+
+@media screen and (min-width: 768px) {
+	.modal {
+		width: 426px;
+		padding: 56px 84px;
+		top: -260px;
+		z-index: 1;
+	}
+}
+
+@media screen and (min-width: 1280px) {
+	.modal {
+		left: 331px;
+		top: -408px;
+	}
+}
