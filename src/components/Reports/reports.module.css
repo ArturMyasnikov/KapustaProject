@@ -1,0 +1,23 @@
+.reports {
+	top: 12%;
+	left: 38%;
+	display: flex;
+	justify-content: center;
+	padding-top: 47px;
+
+	color: rgba(82, 85, 95, 0.7);
+	letter-spacing: 0.04em;
+}
+
+.icon {
+	background-image: url(/src/Icons/reportsIcon.svg);
+	width: 14px;
+	height: 14px;
+	margin-left: 20px;
+}
+
+@media screen and (min-width: 768px) {
+	.reports {
+		order: 1;
+	}
+}

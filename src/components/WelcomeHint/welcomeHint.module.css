@@ -1,0 +1,22 @@
+.welcomeHint {
+	width: 280px;
+	height: 152px;
+	margin: 0 auto;
+	padding: 24px;
+	background: linear-gradient(117.84deg, #1d346a 2.84%, #031634 67.28%);
+	border-radius: 30px;
+	color: #ffffff;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.mainText {
+	font-size: 14px;
+	margin-bottom: 20px;
+}
+
+.secondaryText {
+	font-size: 12px;
+}

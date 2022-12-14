@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { FcGoogle } from 'react-icons/fc';
 import ErrorMassage from './ErrorMassage';
+import { registerUser, loginUser } from '../../api';
 import s from './mainPageModal.module.css';
 
 const defaultValues = { email: '', password: '' };
@@ -15,12 +16,19 @@ export default function MainPageModal() {
 		setUser(prevState => ({ ...prevState, [name]: value }));
 	};
 
-	const onLogin = event => {
+	const onLogin = async () => {
+		console.log(user);
 		if (!user.email) {
 			setError(true);
+		} else {
+			const loggedUser = await loginUser(user);
+			console.log(loggedUser);
 		}
-		localStorage.setItem('user', JSON.stringify(user));
-		setUser(defaultValues);
+		// setUser(defaultValues);
+	};
+
+	const onRegister = async () => {
+		await registerUser(user);
 	};
 
 	return (
@@ -62,10 +70,10 @@ export default function MainPageModal() {
 						{error && <ErrorMassage />}
 					</label>
 					<div className={s.btnWrapper}>
-						<button type="submit" className={s.modalBtn} onClick={onLogin}>
+						<button type="button" className={s.modalBtn} onClick={onLogin}>
 							Log In
 						</button>
-						<button type="button" className={s.modalBtn}>
+						<button type="button" className={s.modalBtn} onClick={onRegister}>
 							Registration
 						</button>
 					</div>
