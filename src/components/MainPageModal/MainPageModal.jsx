@@ -24,6 +24,7 @@ export default function MainPageModal() {
 			const loggedUser = await loginUser(user);
 			console.log(loggedUser);
 		}
+		// d
 		// setUser(defaultValues);
 	};
 
