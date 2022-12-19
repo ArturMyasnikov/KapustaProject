@@ -1,6 +1,8 @@
 import { NavLink } from 'react-router-dom';
+import Table from '../../Table/Table';
 import Header from '../Header/Header';
 import Reports from '../Reports/Reports';
+import Summary from '../Summary/Summary';
 // import WelcomeHint from '../WelcomeHint/WelcomeHint';
 import s from './balance.module.css';
 
@@ -22,9 +24,11 @@ export default function Balance() {
 							</div>
 						</div>
 					</div>
+					<Table />
 					{/* <WelcomeHint /> */}
 				</div>
 			</section>
+			<Summary />
 			<footer className={s.footer}>
 				<nav className={s.nav}>
 					<ul className={s.navList}>

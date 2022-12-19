@@ -1,0 +1,23 @@
+.summary {
+	width: 230px;
+	height: 278px;
+	background-color: #f5f6fb;
+	border-radius: 16px 16px 16px 0px;
+}
+
+.title {
+	font-weight: 700;
+	text-align: center;
+}
+
+.backgroundImg {
+	width: 184px;
+	height: 148px;
+	background-image: url(/src/Icons/tabletFooterImg.svg);
+}
+
+.wrapper {
+	display: flex;
+	justify-content: space-between;
+	align-items: end;
+}

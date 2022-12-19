@@ -18,10 +18,6 @@ export function loginUser(data) {
 		},
 		body: JSON.stringify(data),
 	}).then(response => {
-		response.setHeader('Set-Cookie', [
-			`accessToken=${response.accessToken}; HttpOnly; Max-Age=${60000 * 15};`,
-		]);
-
 		return response.json();
 	});
 }
