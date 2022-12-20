@@ -17,14 +17,13 @@ export default function MainPageModal() {
 	};
 
 	const onLogin = async () => {
-		console.log(user);
+		// console.log(user);
 		if (!user.email) {
 			setError(true);
 		} else {
 			const loggedUser = await loginUser(user);
-			console.log(loggedUser);
+			localStorage.setItem('token', loggedUser.accessToken);
 		}
-		// setUser(defaultValues);
 	};
 
 	const onRegister = async () => {

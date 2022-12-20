@@ -9,6 +9,8 @@
 }
 
 .footer {
+	display: flex;
+	justify-content: space-evenly;
 	height: 53px;
 	background-color: var(--background-gray);
 }
@@ -108,5 +110,9 @@
 		display: flex;
 		align-items: center;
 		width: 334px;
+	}
+
+	.footer {
+		display: none;
 	}
 }
