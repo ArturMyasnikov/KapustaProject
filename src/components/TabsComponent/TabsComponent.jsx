@@ -7,7 +7,6 @@ import TabPanel from '@mui/lab/TabPanel';
 import s from './tabsComponent.module.css';
 import BasicDatePicker from '../DatePicker/DatePicker';
 import StickyHeadTable from '../Table/Table';
-
 export default function TabsComponent() {
 	const [value, setValue] = useState('1');
 
