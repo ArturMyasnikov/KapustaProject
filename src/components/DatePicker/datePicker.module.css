@@ -1,3 +1,4 @@
 .calendarWrap {
-	display: flex;
+	display: inline-flex;
+	align-self: center;
 }

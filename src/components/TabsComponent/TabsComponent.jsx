@@ -6,6 +6,7 @@ import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
 import s from './tabsComponent.module.css';
 import BasicDatePicker from '../DatePicker/DatePicker';
+import StickyHeadTable from '../Table/Table';
 
 export default function TabsComponent() {
 	const [value, setValue] = useState('1');
@@ -24,21 +25,23 @@ export default function TabsComponent() {
 				</Box>
 				<TabPanel value="1" sx={{ padding: '0' }}>
 					<div className={s.table}>
-						<BasicDatePicker />
-						<div className={s.productsWrap}>
-							<input
-								type="text"
-								className={s.ProductDescription}
-								placeholder="Product description"
-							/>
-							<select
-								name="categories"
-								title="dfd"
-								id="categories"
-								placeholder="Product category"
-								className={s.select}
-							></select>
-							<div className={s.calculate}>0.00</div>
+						<div className={s.wrapper}>
+							<BasicDatePicker />
+							<div className={s.productsWrap}>
+								<input
+									type="text"
+									className={s.ProductDescription}
+									placeholder="Product description"
+								/>
+								<select
+									name="categories"
+									title="dfd"
+									id="categories"
+									placeholder="Product category"
+									className={s.select}
+								></select>
+								<div className={s.calculate}>0.00</div>
+							</div>
 						</div>
 						<div className={s.btnWrap}>
 							<button type="button" className={s.inputBtn}>
@@ -48,6 +51,7 @@ export default function TabsComponent() {
 								Clear
 							</button>
 						</div>
+						<StickyHeadTable />
 					</div>
 				</TabPanel>
 				<TabPanel value="2"></TabPanel>

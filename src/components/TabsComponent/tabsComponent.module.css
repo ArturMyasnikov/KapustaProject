@@ -1,5 +1,4 @@
 .table {
-	display: flex;
 	width: 704px;
 	height: 616px;
 	margin-bottom: 40px;
@@ -9,8 +8,13 @@
 	background-color: #ffffff;
 }
 
-.productsWrap {
+.wrapper {
 	display: flex;
+	align-items: baseline;
+}
+
+.productsWrap {
+	display: inline-flex;
 	width: 480px;
 	height: 44px;
 	margin-left: 44px;
@@ -46,12 +50,30 @@
 }
 
 .btnWrap {
+	margin-top: 32px;
+	height: 44px;
 	display: flex;
 	justify-content: center;
 }
 
 .inputBtn,
 .clearBtn {
+	border-radius: 16px;
+	border: none;
 	width: 125px;
-	height: 44px;
+	color: #52555f;
+	text-transform: uppercase;
+	font-weight: 700;
+	font-size: 12px;
+	cursor: pointer;
+}
+
+.inputBtn:hover,
+.clearBtn:hover {
+	background: #ff751d;
+	color: #ffffff;
+}
+
+.inputBtn {
+	margin-right: 20px;
 }
