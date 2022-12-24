@@ -1,0 +1,78 @@
+.table {
+	width: 704px;
+	height: 616px;
+	margin-bottom: 40px;
+	padding: 24px 40px;
+	box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
+	border-radius: 0px 30px 30px 30px;
+	background-color: #ffffff;
+}
+
+.wrapper {
+	display: flex;
+	align-items: baseline;
+}
+
+.productsWrap {
+	display: inline-flex;
+	width: 480px;
+	height: 44px;
+	margin-left: 44px;
+	text-align: center;
+	align-items: center;
+	border-radius: 16px 16px 16px 0px;
+	border: 2px solid #f5f6fb;
+	font-size: 12px;
+	color: #c7ccdc;
+}
+
+.ProductDescription {
+	border: none;
+	border-right: 2px solid #f5f6fb;
+	width: 184px;
+	padding-left: 20px;
+}
+.select {
+	border: none;
+	width: 186px;
+}
+
+.calculate {
+	width: 110px;
+	line-height: 20px;
+	border: none;
+	border-left: 2px solid #f5f6fb;
+	background-image: url(/src/Icons/calculator.svg);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-position-x: 6.3em;
+}
+
+.btnWrap {
+	margin-top: 32px;
+	height: 44px;
+	display: flex;
+	justify-content: center;
+}
+
+.inputBtn,
+.clearBtn {
+	border-radius: 16px;
+	border: none;
+	width: 125px;
+	color: #52555f;
+	text-transform: uppercase;
+	font-weight: 700;
+	font-size: 12px;
+	cursor: pointer;
+}
+
+.inputBtn:hover,
+.clearBtn:hover {
+	background: #ff751d;
+	color: #ffffff;
+}
+
+.inputBtn {
+	margin-right: 20px;
+}
