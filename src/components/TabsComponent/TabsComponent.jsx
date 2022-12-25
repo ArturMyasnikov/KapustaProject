@@ -3,9 +3,9 @@ import { Box, Tab } from '@mui/material';
 import { TabContext, TabList, TabPanel } from '@mui/lab';
 import s from './tabsComponent.module.css';
 import BasicDatePicker from '../DatePicker/DatePicker';
-import StickyHeadTable from '../Table/Table';
-import SelectComponent from '../Select/Select';
 import { styled } from '@mui/material/styles';
+import MinimalSelect from '../Select/Select';
+import Table from '../Table/Table';
 
 const MyTab = styled(Tab)({
 	background: '#FAFBFD',
@@ -49,7 +49,7 @@ export default function TabsComponent() {
 									className={s.ProductDescription}
 									placeholder="Product description"
 								/>
-								<SelectComponent />
+								<MinimalSelect />
 								<div className={s.calculate}>0.00</div>
 							</div>
 						</div>
@@ -61,7 +61,7 @@ export default function TabsComponent() {
 								Clear
 							</button>
 						</div>
-						<StickyHeadTable />
+						<Table />
 					</div>
 				</TabPanel>
 				<TabPanel value="2"></TabPanel>
