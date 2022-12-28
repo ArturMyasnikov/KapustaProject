@@ -10,7 +10,6 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	width: 174px;
 	color: #52555f;
 }
 
@@ -26,10 +25,17 @@
 }
 
 .logOut {
+	margin-left: 20px;
+	border: none;
+	background: inherit;
+	text-decoration-line: underline;
+	cursor: pointer;
 	color: #52555f;
 }
 
 .userName {
+	padding: 0px 10px;
+	margin-right: 10px;
 	color: inherit;
 }
 
