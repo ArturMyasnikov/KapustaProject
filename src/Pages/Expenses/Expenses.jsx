@@ -1,14 +1,14 @@
 import { NavLink } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import Header from '../Header/Header';
-import Reports from '../Reports/Reports';
-import Summary from '../Summary/Summary';
-import TabsComponent from '../TabsComponent/TabsComponent';
+import Header from '../../components/Header/Header';
+import Reports from '../../components/Reports/Reports';
+import Summary from '../../components/Summary/Summary';
+import TabsComponent from '../../components/TabsComponent/TabsComponent';
 import { fetchExpensesCategories } from '../../api';
-import s from './balance.module.css';
+import s from './expenses.module.css';
 // import WelcomeHint from '../WelcomeHint/WelcomeHint';
 
-export default function Balance() {
+export default function Expenses() {
 	const [expensesCategories, setExpensesCategories] = useState([]);
 
 	useEffect(() => {
@@ -25,7 +25,7 @@ export default function Balance() {
 						<div className={s.balanceWrapper}>
 							<p className={s.balanceText}>Balance:</p>
 							<div className={s.balanceContainer}>
-								<div className={s.currentBalance}>00.00 UAH</div>
+								<div className={s.currentBalance}>0.00 UAH</div>
 								<button type="button" className={s.balanceBtn}>
 									Confirm
 								</button>

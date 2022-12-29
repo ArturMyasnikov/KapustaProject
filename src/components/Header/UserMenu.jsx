@@ -6,17 +6,17 @@ import s from './header.module.css';
 export default function UserMenu() {
 	const dispatch = useDispatch();
 	const nav = useNavigate();
+	const login = useSelector(state => state.user.login.userData.email);
 
 	const logOutUser = () => {
 		dispatch(logOut());
-		nav('/');
+		nav('/', { replace: true });
 	};
-	const login = useSelector(state => state.user.login.userData.email);
-	console.log(login);
+
 	return (
 		<div className={s.nav}>
-			<div className={s.userNameIcon}>U</div>
-			<span className={s.userName}>{login}</span>
+			<div className={s.userNameIcon}>{login?.slice(0, 1).toUpperCase()}</div>
+			<span className={s.userName}>{login?.slice(0, login.indexOf('@'))}</span>
 			<div className={s.outline}></div>
 			<button type="button" onClick={logOutUser} className={s.logOut}>
 				Exit

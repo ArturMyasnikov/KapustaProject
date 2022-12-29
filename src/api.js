@@ -16,6 +16,7 @@ export function loginUser(data) {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json',
+			Authorization: `Bearer ${TOKEN}`,
 		},
 		body: JSON.stringify(data),
 	}).then(response => {
@@ -36,6 +37,21 @@ export function logOutUser() {
 		return response.json();
 	});
 }
+
+export function refreshUser() {
+	return fetch(`${BASE_URL}/auth/refresh`, {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json',
+		},
+	}).then(response => {
+		if (response) {
+			localStorage.setItem('token', '');
+		}
+		return response.json();
+	});
+}
+
 export function fetchExpensesCategories() {
 	return fetch(`${BASE_URL}/transaction/expense-categories`, {
 		method: 'GET',

@@ -1,15 +1,17 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import Balance from './components/Balance/Balance';
+import Expenses from './Pages/Expenses/Expenses';
 import MainPage from './components/MainPage/MainPage';
 import NotFound from './components/NotFound/NotFound';
+// import Income from './Pages/Income/Income';
 
 function App() {
 	return (
 		<>
 			<Routes>
 				<Route path="/" element={<MainPage />} />
-				<Route path="/balance" element={<Balance />} />
+				<Route path="/expenses" element={<Expenses />} />
+				{/* <Route path="/income" element={<Income />} /> */}
 				<Route path="*" element={<NotFound />} />
 			</Routes>
 		</>
