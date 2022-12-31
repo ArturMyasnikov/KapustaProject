@@ -12,7 +12,11 @@ export default function Expenses() {
 	const [expensesCategories, setExpensesCategories] = useState([]);
 
 	useEffect(() => {
-		fetchExpensesCategories().then(expenses => setExpensesCategories(expenses));
+		fetchExpensesCategories().then(expenses => {
+			if (Array.isArray(expenses)) {
+				setExpensesCategories(expenses);
+			}
+		});
 	}, []);
 
 	return (

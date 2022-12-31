@@ -8,7 +8,7 @@ export default function MainPage() {
 	const isLoggedIn = useSelector(state => state.user.isLoggedIn);
 
 	if (isLoggedIn) {
-		return <Navigate to="balance" />;
+		return <Navigate to="expenses" />;
 	}
 
 	return (

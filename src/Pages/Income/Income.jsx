@@ -1,9 +1,9 @@
-// import Expenses from '../Expenses/Expenses';
+import Expenses from '../Expenses/Expenses';
 
-// export default function Income() {
-// 	return (
-// 		<>
-// 			<Expenses />
-// 		</>
-// 	);
-// }
+export default function Income() {
+	return (
+		<>
+			<Expenses />
+		</>
+	);
+}

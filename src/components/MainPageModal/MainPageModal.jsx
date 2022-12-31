@@ -24,8 +24,9 @@ export default function MainPageModal() {
 			setError(true);
 		} else {
 			const loggedUser = await loginUser(user);
+
+			localStorage.setItem('token', loggedUser.accessToken);
 			dispatch(logIn(loggedUser));
-			// localStorage.setItem('token', loggedUser.accessToken);
 		}
 	};
 

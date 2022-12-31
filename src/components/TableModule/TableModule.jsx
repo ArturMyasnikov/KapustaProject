@@ -48,6 +48,7 @@ export default function TableModule({ expensesCategories }) {
 		Boolean(transaction.category) &&
 		Boolean(transaction.description) &&
 		Boolean(transaction.amount);
+
 	return (
 		<div className={s.table}>
 			<div className={s.wrapper}>
