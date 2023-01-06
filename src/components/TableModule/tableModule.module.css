@@ -1,7 +1,6 @@
 .table {
 	width: 704px;
 	height: 616px;
-	margin-bottom: 40px;
 	padding: 24px 40px;
 	box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
 	border-radius: 0px 30px 30px 30px;
@@ -64,6 +63,8 @@
 	border: none;
 	width: 125px;
 	color: #52555f;
+	background-color: #f5f6fb;
+	box-shadow: 1px 3px 5px rgb(82 85 95 / 15%);
 	text-transform: uppercase;
 	font-weight: 700;
 	font-size: 12px;

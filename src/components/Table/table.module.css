@@ -1,11 +1,19 @@
-.table {
-	width: 624px;
-	height: 382px;
+.tableWrapper {
+	display: flex;
+	flex-direction: column;
 	margin-top: 48px;
+}
+
+table {
+	border-spacing: 0;
+	width: 100%;
+}
+
+.table {
 	border-collapse: collapse;
 	font-family: 'Roboto';
 	font-size: 12px;
-	border-radius: 20px 20px 0 0;
+	border-radius: 20px 20px 0px;
 	border-spacing: 0;
 }
 
@@ -17,12 +25,49 @@
 	text-transform: uppercase;
 }
 
+.tableHeadEmpty {
+	width: 20px;
+	border-top-right-radius: 20px;
+}
+
+.tableHeadDate {
+	width: 78px;
+}
+
+.tableHeadDescription {
+	width: 173px;
+}
+
+.tableHeadCategory {
+	text-align: initial;
+	width: 128px;
+}
+
+.tableHeadSum {
+	text-align: inherit;
+	width: 108px;
+}
+
+.tableHeadDelete {
+	width: 50px;
+}
+
+.mainTable {
+	border-collapse: collapse;
+}
+
+.tableBody {
+	height: 360px;
+	overflow-x: hidden;
+}
+
 .tableRow {
 	height: 40px;
 	border-bottom: 2px solid #f5f6fb;
 	border-left: 2px solid #f5f6fb;
 	border-right: 4px solid #f5f6fb;
 	text-align: center;
+	color: #52555f;
 }
 
 .table tr th:first-child {
@@ -31,4 +76,32 @@
 
 .table tr th:last-child {
 	border-radius: 0 20px 0 0;
+}
+
+.deleteIcon {
+	padding: 0;
+	width: 32px;
+	height: 32px;
+	border: none;
+	background: inherit;
+	background-repeat: no-repeat;
+	background-position-y: 50%;
+	background-position-x: 50%;
+	background-image: url('../../Icons/deleteIcon.svg');
+	cursor: pointer;
+}
+
+.wrap {
+	height: 360px;
+	width: 100%;
+}
+
+.tableDescription {
+	max-width: 120px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.tableSum {
+	font-weight: 700;
+	color: #e7192e;
 }

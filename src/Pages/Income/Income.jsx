@@ -1,9 +1,7 @@
-import Expenses from '../Expenses/Expenses';
-
 export default function Income() {
 	return (
 		<>
-			<Expenses />
+			<h1>qwe</h1>
 		</>
 	);
 }

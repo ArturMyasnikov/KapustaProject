@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { getExpenses, getIncome } from '../../api';
 import BasicDatePicker from '../DatePicker/DatePicker';
 import SelectComponent from '../Select/Select';
 import Table from '../Table/Table';
-import { postTransactionExpense } from '../../api';
+import { postTransactionExpense, postTransactionIncome } from '../../api';
 import s from './tableModule.module.css';
 
 const defaultTransactionValues = {
@@ -12,8 +13,27 @@ const defaultTransactionValues = {
 	amount: '',
 };
 
-export default function TableModule({ expensesCategories }) {
+export default function TableModule({ expensesCategories, value }) {
 	const [transaction, setTransaction] = useState(defaultTransactionValues);
+	const [expenses, setExpenses] = useState([]);
+	const [income, setIncome] = useState([]);
+
+	useEffect(() => {
+		getExpenses().then(res => {
+			console.log('res', res);
+			if (Array.isArray(res?.expenses)) {
+				setExpenses(res.expenses);
+			}
+		});
+	}, []);
+
+	useEffect(() => {
+		getIncome().then(res => {
+			if (Array.isArray(res?.incomes)) {
+				setIncome(res.incomes);
+			}
+		});
+	}, []);
 
 	const handleInputChange = event => {
 		const { name, value } = event.target;
@@ -21,14 +41,28 @@ export default function TableModule({ expensesCategories }) {
 		setTransaction(prevState => ({ ...prevState, [name]: value }));
 	};
 
-	const onSaveTransactionExpense = () => {
+	const onSaveTransaction = () => {
 		const prepareData = {
 			...transaction,
 			date: formatDate(transaction.date),
 		};
-		postTransactionExpense(prepareData).then(expense => {
-			console.log(expense);
-		});
+		if (value === '1') {
+			postTransactionExpense(prepareData).then(expense => {
+				if (expense) {
+					setExpenses(prevState => {
+						return [...prevState, expense.transaction];
+					});
+				}
+			});
+		} else {
+			postTransactionIncome(prepareData).then(income => {
+				if (income) {
+					setIncome(prevState => {
+						return [...prevState, income.transaction];
+					});
+				}
+			});
+		}
 		setTransaction(defaultTransactionValues);
 	};
 
@@ -87,7 +121,7 @@ export default function TableModule({ expensesCategories }) {
 				<button
 					type="button"
 					disabled={!isButtonDisabled}
-					onClick={onSaveTransactionExpense}
+					onClick={onSaveTransaction}
 					className={s.inputBtn}
 				>
 					Input
@@ -96,7 +130,7 @@ export default function TableModule({ expensesCategories }) {
 					Clear
 				</button>
 			</div>
-			<Table />
+			<Table expenses={expenses} income={income} value={value} />
 		</div>
 	);
 }

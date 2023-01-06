@@ -1,10 +1,9 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Box, Tab } from '@mui/material';
 import { TabContext, TabList, TabPanel } from '@mui/lab';
+import { fetchIncomeCategories } from '../../api';
 import TableModule from '../TableModule/TableModule';
 import { styled } from '@mui/material/styles';
-import { NavLink, Navigate } from 'react-router-dom';
-// import s from './tabsComponent.module.css';
 
 const MyTab = styled(Tab)({
 	background: '#FAFBFD',
@@ -20,13 +19,20 @@ const MyTab = styled(Tab)({
 
 export default function TabsComponent({ expensesCategories }) {
 	const [value, setValue] = useState('1');
+	const [incomeCategories, setIncomeCategories] = useState([]);
 
+	useEffect(() => {
+		fetchIncomeCategories().then(income => {
+			if (Array.isArray(income)) {
+				setIncomeCategories(income);
+			}
+		});
+	}, []);
+	console.log(value);
 	const handleTabChange = (event, newValue) => {
 		setValue(newValue);
 	};
 
-	console.log(expensesCategories);
-	console.log('test');
 	return (
 		<Box sx={{ width: '100%', marginTop: '60px' }}>
 			<TabContext value={value}>
@@ -43,28 +49,12 @@ export default function TabsComponent({ expensesCategories }) {
 					</TabList>
 				</Box>
 				<TabPanel value="1" sx={{ padding: '0' }}>
-					<TableModule expensesCategories={expensesCategories} />
+					<TableModule expensesCategories={expensesCategories} value={value} />
 				</TabPanel>
 				<TabPanel value="2" sx={{ padding: '0' }}>
-					<TableModule expensesCategories={expensesCategories} />
-					<Navigate to="/income" />
-					{/* <TableModule expensesCategories={expensesCategories} /> */}
-					{/* {value === '2' && <Navigate to="income" /> && (
-					<TableModule expensesCategories={expensesCategories} />
-				)} */}
+					<TableModule expensesCategories={incomeCategories} />
 				</TabPanel>
 			</TabContext>
 		</Box>
 	);
 }
-
-// {
-// 	/* <div className={s.linkDiv}>
-// 			<NavLink to={'/expenses'} className={s.link}>
-// 				Expenses
-// 			</NavLink>
-// 			<NavLink to={'/income'} className={s.link}>
-// 				Income
-// 			</NavLink>
-// 		</div> */
-// }
