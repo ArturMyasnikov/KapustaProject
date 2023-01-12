@@ -1,48 +1,7 @@
-.section {
-	height: 458px;
-}
-
 .background {
 	height: 286px;
 	background-color: var(--background-gray);
 	border-bottom-left-radius: 110px;
-}
-
-.footer {
-	display: flex;
-	justify-content: space-evenly;
-	height: 53px;
-	background-color: var(--background-gray);
-}
-
-.navLink {
-	font-weight: 700;
-	font-size: 12px;
-	line-height: 14px;
-	text-transform: uppercase;
-	color: var(--black);
-	text-decoration: none;
-}
-
-.navListItem {
-	width: 159px;
-	text-align: center;
-}
-
-.nav {
-	padding: 0;
-	margin: 0;
-	height: 100%;
-
-	display: flex;
-	align-items: center;
-}
-
-.navList {
-	padding: 0;
-	margin: 0;
-	display: flex;
-	justify-content: space-between;
 }
 
 .balanceText {
@@ -86,8 +45,57 @@
 	font-size: 14px;
 }
 
+@media screen and (max-width: 767px) {
+	.addExpensesLink {
+		align-items: center;
+		background-color: #f5f6fb;
+		border: 2px solid #ffffff;
+		border-radius: 22px;
+		box-shadow: 2px 2px 5px 0 #d3d3d3;
+		color: black;
+		display: flex;
+		font-size: 12px;
+		font-weight: 700;
+		height: 48px;
+		justify-content: center;
+		letter-spacing: 0.02em;
+		line-height: 1.17;
+		margin-left: auto;
+		margin-right: auto;
+		text-transform: uppercase;
+		transition: all 0.25s linear;
+		width: 158px;
+		text-decoration: none;
+	}
+
+	.addExpensesLink:hover,
+	.addExpensesLink:focus {
+		background: var(--orange);
+		color: #ffffff;
+		transition: all 0.25s linear;
+	}
+
+	.balanceWrapper {
+		margin-bottom: 32px;
+	}
+}
+
 @media screen and (min-width: 768px) {
+	.addExpensesLink {
+		display: none;
+	}
+
+	.section {
+		height: 900px;
+		width: 768px;
+		margin: 0 auto;
+		background-image: url(../../Icons/deskFooterBgImg.svg);
+		background-position-y: bottom;
+		background-repeat: no-repeat;
+	}
+
 	.wrap {
+		margin-bottom: 60px;
 		display: flex;
 		flex-wrap: wrap;
 		align-items: baseline;
@@ -111,8 +119,17 @@
 		align-items: center;
 		width: 334px;
 	}
+}
 
-	.footer {
-		display: none;
+@media screen and (min-width: 1279px) {
+	.section {
+		display: flex;
+		justify-content: center;
+		width: 1280px;
+	}
+
+	.wrap {
+		justify-content: center;
+		margin-bottom: 8px;
 	}
 }

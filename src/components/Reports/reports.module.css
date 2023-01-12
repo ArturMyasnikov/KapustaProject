@@ -21,3 +21,9 @@
 		order: 1;
 	}
 }
+
+@media screen and (min-width: 1279px) {
+	.reports {
+		margin-left: 50px;
+	}
+}

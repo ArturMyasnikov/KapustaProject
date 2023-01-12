@@ -3,6 +3,7 @@ import { getExpenses, getIncome } from '../../api';
 import BasicDatePicker from '../DatePicker/DatePicker';
 import SelectComponent from '../Select/Select';
 import Table from '../Table/Table';
+import SummaryForDesktop from '../Summary/SummaryForDesktop';
 import { postTransactionExpense, postTransactionIncome } from '../../api';
 import s from './tableModule.module.css';
 
@@ -85,52 +86,57 @@ export default function TableModule({ expensesCategories, value }) {
 
 	return (
 		<div className={s.table}>
-			<div className={s.wrapper}>
-				<BasicDatePicker
-					value={transaction.date}
-					setTransaction={setTransaction}
-				/>
-				<div className={s.productsWrap}>
-					<input
-						type="text"
-						name="description"
-						onChange={handleInputChange}
-						value={transaction.description}
-						className={s.ProductDescription}
-						placeholder="Product description"
-					/>
-					<SelectComponent
-						value={transaction.category}
+			<div className={s.desktopWidthWrap}>
+				<div className={s.wrapper}>
+					<BasicDatePicker
+						value={transaction.date}
 						setTransaction={setTransaction}
-						expensesCategories={expensesCategories}
 					/>
-
-					<label htmlFor="amount" className={s.calculate}>
+					<div className={s.productsWrap}>
 						<input
-							type="number"
-							name="amount"
-							value={transaction.amount}
+							type="text"
+							name="description"
 							onChange={handleInputChange}
-							className={s.input}
-							placeholder="0.00"
+							value={transaction.description}
+							className={s.ProductDescription}
+							placeholder="Product description"
 						/>
-					</label>
+						<SelectComponent
+							value={transaction.category}
+							setTransaction={setTransaction}
+							expensesCategories={expensesCategories}
+						/>
+
+						<label htmlFor="amount" className={s.calculate}>
+							<input
+								type="number"
+								name="amount"
+								value={transaction.amount}
+								onChange={handleInputChange}
+								className={s.input}
+								placeholder="0.00"
+							/>
+						</label>
+					</div>
+				</div>
+				<div className={s.btnWrap}>
+					<button
+						type="button"
+						disabled={!isButtonDisabled}
+						onClick={onSaveTransaction}
+						className={s.inputBtn}
+					>
+						Input
+					</button>
+					<button type="button" className={s.clearBtn}>
+						Clear
+					</button>
 				</div>
 			</div>
-			<div className={s.btnWrap}>
-				<button
-					type="button"
-					disabled={!isButtonDisabled}
-					onClick={onSaveTransaction}
-					className={s.inputBtn}
-				>
-					Input
-				</button>
-				<button type="button" className={s.clearBtn}>
-					Clear
-				</button>
+			<div className={s.tableAndSummaryWrap}>
+				<Table expenses={expenses} income={income} value={value} />
+				<SummaryForDesktop />
 			</div>
-			<Table expenses={expenses} income={income} value={value} />
 		</div>
 	);
 }

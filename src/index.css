@@ -17,6 +17,11 @@ body {
 	-moz-osx-font-smoothing: grayscale;
 }
 
+button {
+	cursor: pointer;
+	padding: 0;
+}
+
 img {
 	display: block;
 	max-width: 100%;
@@ -33,8 +38,10 @@ code {
 	box-sizing: border-box;
 }
 
+ul,
 p {
 	margin: 0;
+	padding: 0;
 }
 
 li {

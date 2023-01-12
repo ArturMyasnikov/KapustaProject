@@ -28,13 +28,13 @@ export default function TabsComponent({ expensesCategories }) {
 			}
 		});
 	}, []);
-	console.log(value);
+
 	const handleTabChange = (event, newValue) => {
 		setValue(newValue);
 	};
 
 	return (
-		<Box sx={{ width: '100%', marginTop: '60px' }}>
+		<Box sx={{ width: '100%' }}>
 			<TabContext value={value}>
 				<Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
 					<TabList

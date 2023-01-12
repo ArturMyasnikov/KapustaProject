@@ -1,26 +1,6 @@
-.backgroundImg {
-	width: 184px;
-	height: 148px;
-	background-image: url(/src/Icons/tabletFooterImg.svg);
-	background-repeat: no-repeat;
-}
-
-.wrapper {
-	display: flex;
-	padding: 0 32px;
-	justify-content: space-between;
-	align-items: flex-end;
-}
-
-@media screen and (min-width: 1279px) {
-	.wrapper {
-		display: none;
-	}
-}
-
 .summary {
 	display: block;
-	margin-top: 40px;
+	margin-top: 48px;
 	display: flex;
 	flex-direction: column;
 }
@@ -56,4 +36,10 @@
 
 .item:last-child {
 	border-bottom-right-radius: 16px;
+}
+
+@media screen and (max-width: 1280px) {
+	.summary {
+		display: none;
+	}
 }

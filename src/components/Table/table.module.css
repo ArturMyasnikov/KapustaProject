@@ -4,6 +4,12 @@
 	margin-top: 48px;
 }
 
+@media screen and (min-width: 1279px) {
+	.tableWrapper {
+		width: 746px;
+	}
+}
+
 table {
 	border-spacing: 0;
 	width: 100%;
@@ -104,4 +110,9 @@ table {
 .tableSum {
 	font-weight: 700;
 	color: #e7192e;
+}
+
+.tableSumIncome {
+	font-weight: 700;
+	color: #407946;
 }

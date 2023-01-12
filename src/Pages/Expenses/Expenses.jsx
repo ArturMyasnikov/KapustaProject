@@ -6,10 +6,13 @@ import Summary from '../../components/Summary/Summary';
 import TabsComponent from '../../components/TabsComponent/TabsComponent';
 import { fetchExpensesCategories } from '../../api';
 import s from './expenses.module.css';
+import MobileTable from '../../components/Table/MobileTable';
+import useWidth from '../../hooks/useWidth';
 // import WelcomeHint from '../WelcomeHint/WelcomeHint';
 
 export default function Expenses() {
 	const [expensesCategories, setExpensesCategories] = useState([]);
+	const width = useWidth();
 
 	useEffect(() => {
 		fetchExpensesCategories().then(expenses => {
@@ -35,25 +38,18 @@ export default function Expenses() {
 								</button>
 							</div>
 						</div>
+
+						<NavLink className={s.addExpensesLink}>ADD EXPENSES</NavLink>
 					</div>
-					<TabsComponent expensesCategories={expensesCategories} />
-					<Summary />
+
+					{width > 767 && (
+						<TabsComponent expensesCategories={expensesCategories} />
+					)}
+					{width > 767 && <Summary />}
 					{/* <WelcomeHint /> */}
 				</div>
 			</section>
-
-			<footer className={s.footer}>
-				<nav className={s.nav}>
-					<ul className={s.navList}>
-						<li className={s.navListItem}>
-							<NavLink className={s.navLink}>Expenses</NavLink>
-						</li>
-						<li className={s.navListItem}>
-							<NavLink className={s.navLink}>Income</NavLink>
-						</li>
-					</ul>
-				</nav>
-			</footer>
+			{width < 767 && <MobileTable />}
 		</>
 	);
 }

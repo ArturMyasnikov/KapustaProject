@@ -1,16 +1,15 @@
-import { useState } from 'react';
 import { deleteTransaction } from '../../api';
 import s from './table.module.css';
 
 export default function Table({ expenses, income, value }) {
-	const [transactionId, setTransactionId] = useState('');
-
+	// const [transactionId, setTransactionId] = useState('');
 	// console.log('transactionId', transactionId);
 
 	const onDeleteTransaction = _id => {
-		setTransactionId(_id);
-		console.log(transactionId);
-		console.log(deleteTransaction(transactionId));
+		// setTransactionId(_id);
+		deleteTransaction(_id);
+		// console.log(transactionId);
+		// console.log(deleteTransaction(transactionId));
 		// deleteTransaction(transactionId);  зацикливается вкладка !!!!!!
 		// setTransactionId('');
 	};
@@ -22,7 +21,7 @@ export default function Table({ expenses, income, value }) {
 					<td>{date}</td>
 					<td className={s.tableDescription}>{description}</td>
 					<td>{category}</td>
-					<td className={s.tableSum}>- {amount} грн.</td>
+					<td className={s.tableSumIncome}>{amount} грн.</td>
 					<td>
 						<button
 							type="button"

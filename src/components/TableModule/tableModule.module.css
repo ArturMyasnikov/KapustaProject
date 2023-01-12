@@ -7,6 +7,23 @@
 	background-color: #ffffff;
 }
 
+@media screen and (min-width: 1279px) {
+	.table {
+		width: 1098px;
+	}
+
+	.desktopWidthWrap {
+		display: flex;
+		align-items: baseline;
+		justify-content: space-between;
+	}
+
+	.tableAndSummaryWrap {
+		display: flex;
+		justify-content: space-between;
+	}
+}
+
 .wrapper {
 	display: flex;
 	align-items: baseline;

@@ -5,14 +5,16 @@ export default function Summary() {
 		<>
 			<div className={s.wrapper}>
 				<div className={s.summary}>
-					<p className={s.title}>Summary</p>
+					<div className={s.titleWrap}>
+						<p className={s.title}>Summary</p>
+					</div>
 					<ul className={s.list}>
-						<li className={s.item}></li>
-						<li className={s.item}></li>
-						<li className={s.item}></li>
-						<li className={s.item}></li>
-						<li className={s.item}></li>
-						<li className={s.item}></li>
+						<li className={s.item}>DECEMBER</li>
+						<li className={s.item}>1</li>
+						<li className={s.item}>1</li>
+						<li className={s.item}>1</li>
+						<li className={s.item}>1</li>
+						<li className={s.item}>1</li>
 					</ul>
 				</div>
 				<div className={s.backgroundImg}></div>

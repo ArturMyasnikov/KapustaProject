@@ -1,8 +1,8 @@
 const BASE_URL = 'https://kapusta-backend.goit.global';
 const TOKEN = localStorage.getItem('token');
 
-export function registerUser(user) {
-	return fetch(`${BASE_URL}/auth/register`, {
+export async function registerUser(user) {
+	return await fetch(`${BASE_URL}/auth/register`, {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json',
@@ -11,8 +11,8 @@ export function registerUser(user) {
 	}).then(response => response.json());
 }
 
-export function loginUser(data) {
-	return fetch(`${BASE_URL}/auth/login`, {
+export async function loginUser(data) {
+	return await fetch(`${BASE_URL}/auth/login`, {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json',
@@ -24,8 +24,8 @@ export function loginUser(data) {
 	});
 }
 
-export function logOutUser() {
-	return fetch(`${BASE_URL}/auth/logout`, {
+export async function logOutUser() {
+	return await fetch(`${BASE_URL}/auth/logout`, {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json',
@@ -38,8 +38,8 @@ export function logOutUser() {
 	});
 }
 
-export function refreshUser() {
-	return fetch(`${BASE_URL}/auth/refresh`, {
+export async function refreshUser() {
+	return await fetch(`${BASE_URL}/auth/refresh`, {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json',
@@ -52,8 +52,8 @@ export function refreshUser() {
 	});
 }
 
-export function fetchExpensesCategories() {
-	return fetch(`${BASE_URL}/transaction/expense-categories`, {
+export async function fetchExpensesCategories() {
+	return await fetch(`${BASE_URL}/transaction/expense-categories`, {
 		method: 'GET',
 		headers: {
 			'Content-Type': 'application/json',
@@ -64,8 +64,8 @@ export function fetchExpensesCategories() {
 	});
 }
 
-export function fetchIncomeCategories() {
-	return fetch(`${BASE_URL}/transaction/income-categories`, {
+export async function fetchIncomeCategories() {
+	return await fetch(`${BASE_URL}/transaction/income-categories`, {
 		method: 'GET',
 		headers: {
 			'Content-Type': 'application/json',
@@ -76,8 +76,8 @@ export function fetchIncomeCategories() {
 	});
 }
 
-export function getExpenses() {
-	return fetch(`${BASE_URL}/transaction/expense`, {
+export async function getExpenses() {
+	return await fetch(`${BASE_URL}/transaction/expense`, {
 		method: 'GET',
 		headers: {
 			'Content-Type': 'application/json',
@@ -88,8 +88,8 @@ export function getExpenses() {
 	});
 }
 
-export function getIncome() {
-	return fetch(`${BASE_URL}/transaction/income`, {
+export async function getIncome() {
+	return await fetch(`${BASE_URL}/transaction/income`, {
 		method: 'GET',
 		headers: {
 			'Content-Type': 'application/json',
@@ -100,8 +100,8 @@ export function getIncome() {
 	});
 }
 
-export function postTransactionExpense(data) {
-	return fetch(`${BASE_URL}/transaction/expense`, {
+export async function postTransactionExpense(data) {
+	return await fetch(`${BASE_URL}/transaction/expense`, {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json',
@@ -113,8 +113,8 @@ export function postTransactionExpense(data) {
 	});
 }
 
-export function postTransactionIncome(data) {
-	return fetch(`${BASE_URL}/transaction/income`, {
+export async function postTransactionIncome(data) {
+	return await fetch(`${BASE_URL}/transaction/income`, {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json',
@@ -126,13 +126,15 @@ export function postTransactionIncome(data) {
 	});
 }
 
-export function deleteTransaction(id) {
-	return fetch(`${BASE_URL}/transaction/${id}`, {
+export async function deleteTransaction(id) {
+	return await fetch(`${BASE_URL}/transaction/${id}`, {
 		method: 'DELETE',
 		headers: {
 			'Content-Type': 'application/json',
 		},
 	})
-		.then(response => console.log(response))
+		.then(response => {
+			return console.log(response.json());
+		})
 		.catch(error => console.log(error));
 }
