@@ -1,7 +1,7 @@
 import Logo from './Logo';
 import { useSelector } from 'react-redux';
-import s from './header.module.css';
 import UserMenu from './UserMenu';
+import s from './header.module.css';
 
 export default function Header() {
 	const isLoggedIn = useSelector(state => state.user.isLoggedIn);

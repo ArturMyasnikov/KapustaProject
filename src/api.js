@@ -126,15 +126,33 @@ export async function postTransactionIncome(data) {
 	});
 }
 
-export async function deleteTransaction(id) {
-	return await fetch(`${BASE_URL}/transaction/${id}`, {
-		method: 'DELETE',
-		headers: {
-			'Content-Type': 'application/json',
-		},
-	})
-		.then(response => {
-			return console.log(response.json());
+// export async function deleteTransaction(id) {
+// 	return await fetch(`${BASE_URL}/transaction/${id}`, {
+// 		method: 'DELETE',
+// 		headers: {
+// 			'Content-Type': 'application/json',
+// 		},
+// 	})
+// 		.then(response => {
+// 			return console.log(response.json());
+// 		})
+// 		.catch(error => console.log(error));
+// }
+
+export const deleteTransaction = transactionId => {
+	return dispatch => {
+		dispatch({ type: 'DELETE_TRANSACTION_START' });
+		fetch(`${BASE_URL}/transaction/${transactionId}`, {
+			method: 'DELETE',
+			headers: {
+				'Content-Type': 'application/json',
+			},
 		})
-		.catch(error => console.log(error));
-}
+			.then(res => {
+				dispatch({ type: 'DELETE_TRANSACTION_SUCCESS', payload: res.data });
+			})
+			.catch(err => {
+				dispatch({ type: 'DELETE_TRANSACTION_FAILURE', payload: err });
+			});
+	};
+};

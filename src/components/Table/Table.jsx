@@ -1,17 +1,14 @@
 import { deleteTransaction } from '../../api';
+import { useDispatch } from 'react-redux';
 import s from './table.module.css';
 
 export default function Table({ expenses, income, value }) {
+	const dispatch = useDispatch();
 	// const [transactionId, setTransactionId] = useState('');
 	// console.log('transactionId', transactionId);
 
-	const onDeleteTransaction = _id => {
-		// setTransactionId(_id);
-		deleteTransaction(_id);
-		// console.log(transactionId);
-		// console.log(deleteTransaction(transactionId));
-		// deleteTransaction(transactionId);  зацикливается вкладка !!!!!!
-		// setTransactionId('');
+	const onDeleteTransaction = transactionId => {
+		dispatch(deleteTransaction(transactionId));
 	};
 
 	const renderIncome = income?.map(
@@ -25,7 +22,7 @@ export default function Table({ expenses, income, value }) {
 					<td>
 						<button
 							type="button"
-							// onClick={onDeleteTransaction(_id)}
+							onClick={() => onDeleteTransaction(_id)}
 							className={s.deleteIcon}
 						></button>
 					</td>
@@ -77,3 +74,38 @@ export default function Table({ expenses, income, value }) {
 		</>
 	);
 }
+
+// function TransactionList({ transactions, deleteTransaction }) {
+//   const handleDelete = (transactionId) => {
+//     deleteTransaction(transactionId);
+//   };
+
+//   return (
+//     <div>
+//       {transactions.map((transaction) => (
+//         <div key={transaction._id}>
+//           <p>{transaction.amount}</p>
+//           <button onClick={() => handleDelete(transaction._id)}>Delete</button>
+//         </div>
+//       ))}
+//     </div>
+//   );
+// }
+
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+//     deleteTransaction: (transactionId) =>
+//       dispatch(deleteTransaction(transactionId)),
+//   };
+// };
+
+// export default connect(null, mapDispatchToProps)(TransactionList);
+
+// const mapDispatchToProps = (dispatch) => {
+// 	return {
+// 		deleteTransaction: (transactionId) =>
+// 			dispatch(deleteTransaction(transactionId)),
+// 	};
+// };
+
+// export default connect(null, mapDispatchToProps)(TransactionList);
