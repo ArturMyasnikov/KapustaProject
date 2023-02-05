@@ -160,3 +160,17 @@ export async function fetchPeriodData(date = '01') {
 		return response.json();
 	});
 }
+
+export async function getUser() {
+	return await fetch(`${BASE_URL}/user`, {
+		method: 'GET',
+		headers: {
+			'Content-Type': 'application/json',
+			Authorization: `Bearer ${TOKEN}`,
+		},
+	})
+		.then(response => {
+			return response.json();
+		})
+		.catch(error => console.log(error));
+}

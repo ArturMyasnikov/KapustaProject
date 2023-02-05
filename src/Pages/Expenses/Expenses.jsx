@@ -4,17 +4,19 @@ import Header from '../../components/Header/Header';
 import LinkToReports from '../../components/Reports/LinkToReports';
 import Summary from '../../components/Summary/Summary';
 import TabsComponent from '../../components/TabsComponent/TabsComponent';
-import { fetchExpensesCategories } from '../../api';
-import s from './expenses.module.css';
+import { fetchExpensesCategories, getUser } from '../../api';
 import MobileTable from '../../components/Table/MobileTable';
 import useWidth from '../../hooks/useWidth';
+import s from './expenses.module.css';
 // import WelcomeHint from '../WelcomeHint/WelcomeHint';
 
 export default function Expenses() {
 	const [expensesCategories, setExpensesCategories] = useState([]);
+	const [userInfo, setUserInfo] = useState({});
 	const width = useWidth();
 
 	useEffect(() => {
+		getUser().then(info => setUserInfo(info));
 		fetchExpensesCategories().then(expenses => {
 			if (Array.isArray(expenses)) {
 				setExpensesCategories(expenses);
@@ -28,13 +30,15 @@ export default function Expenses() {
 			<section className={s.section}>
 				<div className={s.background}>
 					<div className={s.wrap}>
-						{/* <NavLink to={<Reports>}/> */}
-						<LinkToReports />
-						{/* <NavLink to="/reports">Reports</NavLink> */}
+						<NavLink to="/reports">
+							<LinkToReports />
+						</NavLink>
 						<div className={s.balanceWrapper}>
 							<p className={s.balanceText}>Balance:</p>
 							<div className={s.balanceContainer}>
-								<div className={s.currentBalance}>0.00 UAH</div>
+								<div className={s.currentBalance}>
+									{`${userInfo.balance} UAH`}
+								</div>
 								<button type="button" className={s.balanceBtn}>
 									Confirm
 								</button>
