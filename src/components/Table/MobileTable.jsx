@@ -1,12 +1,22 @@
 import { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
-import { getExpenses, getIncome } from '../../api';
+import { getExpenses, getIncome, deleteTransaction } from '../../api';
 import s from './mobileTable.module.css';
 
 export default function MobileTable() {
 	const [expenses, setExpenses] = useState([]);
 	const [income, setIncome] = useState([]);
 	const [page, setPage] = useState('1');
+
+	const onDeleteTransaction = async transactionId => {
+		const result = await deleteTransaction(transactionId);
+		console.log('result', result);
+		if (result.newBalance) {
+			setExpenses(prevState =>
+				prevState.filter(transaction => transaction._id !== transactionId)
+			);
+		}
+	};
 
 	useEffect(() => {
 		getExpenses().then(res => {
@@ -36,7 +46,11 @@ export default function MobileTable() {
 						</div>
 						<div className={s.sumAndBtnContainer}>
 							<p className={s.sumExpense}>-{amount} грн.</p>
-							<button type="button" className={s.deleteBtn}></button>
+							<button
+								type="button"
+								onClick={() => onDeleteTransaction(_id)}
+								className={s.deleteBtn}
+							></button>
 						</div>
 					</div>
 				</div>
@@ -54,8 +68,12 @@ export default function MobileTable() {
 							<p className={s.textCategory}>{category}</p>
 						</div>
 						<div className={s.sumAndBtnContainer}>
-							<p className={s.sumExpense}>{amount} грн.</p>
-							<button type="button" className={s.deleteBtn}></button>
+							<p className={s.sumIncone}>{amount} грн.</p>
+							<button
+								type="button"
+								onClick={() => onDeleteTransaction(_id)}
+								className={s.deleteBtn}
+							></button>
 						</div>
 					</div>
 				</div>

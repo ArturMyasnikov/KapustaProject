@@ -1,6 +1,6 @@
 import s from './reports.module.css';
 
-export default function Reports() {
+export default function LinkToReports() {
 	return (
 		<>
 			<div className={s.reports}>

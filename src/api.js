@@ -114,45 +114,49 @@ export async function postTransactionExpense(data) {
 }
 
 export async function postTransactionIncome(data) {
+	console.log('data', data);
 	return await fetch(`${BASE_URL}/transaction/income`, {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json',
 			Authorization: `Bearer ${TOKEN}`,
 		},
-		body: JSON.stringify(data),
+		body: JSON.stringify({
+			...data,
+			amount: Number(data.amount),
+		}),
+	})
+		.then(response => {
+			console.log(response);
+			return response.json();
+		})
+		.catch(error => console.log('postTransactionIncomeError', error));
+}
+
+export function deleteTransaction(id) {
+	return fetch(`${BASE_URL}/transaction/${id}`, {
+		method: 'DELETE',
+		headers: {
+			'Content-Type': 'application/json',
+			Authorization: `Bearer ${TOKEN}`,
+		},
+	})
+		.then(response => {
+			console.log(response);
+			return response.json();
+		})
+		.catch(error => console.log(error));
+}
+
+export async function fetchPeriodData(date = '01') {
+	return await fetch(`${BASE_URL}/transaction/period-data?date=2023-${date}`, {
+		method: 'GET',
+		headers: {
+			'Content-Type': 'application/json',
+			Authorization: `Bearer ${TOKEN}`,
+		},
 	}).then(response => {
+		console.log(response);
 		return response.json();
 	});
 }
-
-// export async function deleteTransaction(id) {
-// 	return await fetch(`${BASE_URL}/transaction/${id}`, {
-// 		method: 'DELETE',
-// 		headers: {
-// 			'Content-Type': 'application/json',
-// 		},
-// 	})
-// 		.then(response => {
-// 			return console.log(response.json());
-// 		})
-// 		.catch(error => console.log(error));
-// }
-
-export const deleteTransaction = transactionId => {
-	return dispatch => {
-		dispatch({ type: 'DELETE_TRANSACTION_START' });
-		fetch(`${BASE_URL}/transaction/${transactionId}`, {
-			method: 'DELETE',
-			headers: {
-				'Content-Type': 'application/json',
-			},
-		})
-			.then(res => {
-				dispatch({ type: 'DELETE_TRANSACTION_SUCCESS', payload: res.data });
-			})
-			.catch(err => {
-				dispatch({ type: 'DELETE_TRANSACTION_FAILURE', payload: err });
-			});
-	};
-};

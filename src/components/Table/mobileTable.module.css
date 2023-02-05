@@ -75,6 +75,10 @@
 	text-align: center;
 	width: 80px;
 }
+
+.sumIncone {
+	color: #407946;
+}
 .deleteBtn {
 	background: none;
 	background-image: url(/src/Icons/deleteIcon.svg);

@@ -1,14 +1,33 @@
 import { deleteTransaction } from '../../api';
-import { useDispatch } from 'react-redux';
 import s from './table.module.css';
 
-export default function Table({ expenses, income, value }) {
-	const dispatch = useDispatch();
-	// const [transactionId, setTransactionId] = useState('');
-	// console.log('transactionId', transactionId);
+export default function Table({
+	setExpenses,
+	setIncome,
+	expenses,
+	income,
+	value,
+}) {
+	const onDeleteTransaction = async transactionId => {
+		try {
+			const result = await deleteTransaction(transactionId);
+			setExpenses(prevState =>
+				prevState.filter(transaction => transaction._id !== transactionId)
+			);
+		} catch (error) {
+			console.log(error);
+		}
+	};
 
-	const onDeleteTransaction = transactionId => {
-		dispatch(deleteTransaction(transactionId));
+	const onDeleteIncome = async transactionId => {
+		try {
+			const result = await deleteTransaction(transactionId);
+			setIncome(prevState =>
+				prevState.filter(transaction => transaction._id !== transactionId)
+			);
+		} catch (error) {
+			console.log('onDeleteIncomeError', error);
+		}
 	};
 
 	const renderIncome = income?.map(
@@ -22,7 +41,7 @@ export default function Table({ expenses, income, value }) {
 					<td>
 						<button
 							type="button"
-							onClick={() => onDeleteTransaction(_id)}
+							onClick={() => onDeleteIncome(_id)}
 							className={s.deleteIcon}
 						></button>
 					</td>
@@ -74,38 +93,3 @@ export default function Table({ expenses, income, value }) {
 		</>
 	);
 }
-
-// function TransactionList({ transactions, deleteTransaction }) {
-//   const handleDelete = (transactionId) => {
-//     deleteTransaction(transactionId);
-//   };
-
-//   return (
-//     <div>
-//       {transactions.map((transaction) => (
-//         <div key={transaction._id}>
-//           <p>{transaction.amount}</p>
-//           <button onClick={() => handleDelete(transaction._id)}>Delete</button>
-//         </div>
-//       ))}
-//     </div>
-//   );
-// }
-
-// const mapDispatchToProps = (dispatch) => {
-//   return {
-//     deleteTransaction: (transactionId) =>
-//       dispatch(deleteTransaction(transactionId)),
-//   };
-// };
-
-// export default connect(null, mapDispatchToProps)(TransactionList);
-
-// const mapDispatchToProps = (dispatch) => {
-// 	return {
-// 		deleteTransaction: (transactionId) =>
-// 			dispatch(deleteTransaction(transactionId)),
-// 	};
-// };
-
-// export default connect(null, mapDispatchToProps)(TransactionList);

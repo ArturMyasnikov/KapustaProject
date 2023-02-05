@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import Header from '../../components/Header/Header';
-import Reports from '../../components/Reports/Reports';
+import LinkToReports from '../../components/Reports/LinkToReports';
 import Summary from '../../components/Summary/Summary';
 import TabsComponent from '../../components/TabsComponent/TabsComponent';
 import { fetchExpensesCategories } from '../../api';
@@ -28,7 +28,9 @@ export default function Expenses() {
 			<section className={s.section}>
 				<div className={s.background}>
 					<div className={s.wrap}>
-						<Reports />
+						{/* <NavLink to={<Reports>}/> */}
+						<LinkToReports />
+						{/* <NavLink to="/reports">Reports</NavLink> */}
 						<div className={s.balanceWrapper}>
 							<p className={s.balanceText}>Balance:</p>
 							<div className={s.balanceContainer}>

@@ -18,13 +18,20 @@ export default function TableModule({ expensesCategories, value }) {
 	const [transaction, setTransaction] = useState(defaultTransactionValues);
 	const [expenses, setExpenses] = useState([]);
 	const [income, setIncome] = useState([]);
+	const [monthsStats, setMonthsStats] = useState([]);
 
 	useEffect(() => {
 		getExpenses().then(res => {
-			console.log('response', res.monthsStats);
+			setExpenses(res.monthsStats);
 			if (Array.isArray(res?.expenses)) {
 				setExpenses(res.expenses);
 			}
+		});
+	}, []);
+
+	useEffect(() => {
+		getExpenses().then(res => {
+			setMonthsStats(res.monthsStats);
 		});
 	}, []);
 
@@ -134,8 +141,14 @@ export default function TableModule({ expensesCategories, value }) {
 				</div>
 			</div>
 			<div className={s.tableAndSummaryWrap}>
-				<Table expenses={expenses} income={income} value={value} />
-				<SummaryForDesktop />
+				<Table
+					expenses={expenses}
+					setExpenses={setExpenses}
+					income={income}
+					setIncome={setIncome}
+					value={value}
+				/>
+				<SummaryForDesktop monthsStats={monthsStats} />
 			</div>
 		</div>
 	);
