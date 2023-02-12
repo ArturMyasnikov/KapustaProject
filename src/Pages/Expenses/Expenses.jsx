@@ -8,6 +8,7 @@ import { fetchExpensesCategories, getUser } from '../../api';
 import MobileTable from '../../components/Table/MobileTable';
 import useWidth from '../../hooks/useWidth';
 import s from './expenses.module.css';
+import BalanceSheet from '../../components/BalanceSheet/BalanceSheet';
 // import WelcomeHint from '../WelcomeHint/WelcomeHint';
 
 export default function Expenses() {
@@ -23,7 +24,7 @@ export default function Expenses() {
 			}
 		});
 	}, []);
-
+	console.log('userInfo', userInfo);
 	return (
 		<>
 			<Header />
@@ -33,7 +34,8 @@ export default function Expenses() {
 						<NavLink to="/reports">
 							<LinkToReports />
 						</NavLink>
-						<div className={s.balanceWrapper}>
+						{userInfo.balance && <BalanceSheet balance={userInfo?.balance} />}
+						{/* <div className={s.balanceWrapper}>
 							<p className={s.balanceText}>Balance:</p>
 							<div className={s.balanceContainer}>
 								<div className={s.currentBalance}>
@@ -43,7 +45,7 @@ export default function Expenses() {
 									Confirm
 								</button>
 							</div>
-						</div>
+						</div> */}
 
 						<NavLink className={s.addExpensesLink}>ADD EXPENSES</NavLink>
 					</div>

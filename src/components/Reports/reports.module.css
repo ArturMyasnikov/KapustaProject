@@ -27,3 +27,26 @@
 		margin-left: 50px;
 	}
 }
+
+.section {
+	height: 320px;
+	background-color: var(--background-gray);
+	border-bottom-left-radius: 110px;
+}
+
+.backToMainPage {
+	width: 18px;
+	height: 12px;
+}
+
+.currentPeriod {
+	color: #52555fb2;
+}
+
+.statistics {
+	display: flex;
+	width: 280px;
+	height: 85px;
+	box-shadow: 5px 10px 20px rgba(170, 178, 197, 0.4);
+	border-radius: 20px;
+}
