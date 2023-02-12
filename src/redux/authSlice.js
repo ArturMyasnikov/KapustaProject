@@ -17,7 +17,15 @@ export const userSlice = createSlice({
 			state.login = '';
 			state.isLoggedIn = false;
 		},
+		refreshToken(state, action) {
+			state.login = {
+				...state.login,
+				accessToken: action.payload.newAccessToken,
+				refreshToken: action.payload.newRefreshToken,
+				sid: action.payload.newSid,
+			}
+		}
 	},
 });
 
-export const { logIn, logOut } = userSlice.actions;
+export const { logIn, logOut, refreshToken } = userSlice.actions;

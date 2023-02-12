@@ -3,7 +3,7 @@ import s from './summaryForDesktop.module.css';
 export default function SummaryForDesktop({ monthsStats }) {
 	const renderSummary = () => {
 		const summaryArray = [];
-		const monthesArray = Object.keys(monthsStats);
+		const monthesArray = monthsStats ? Object.keys(monthsStats) : [];
 
 		monthesArray.forEach(key => {
 			const isShow = typeof monthsStats[key] === 'number';

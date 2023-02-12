@@ -1,5 +1,4 @@
 const BASE_URL = 'https://kapusta-backend.goit.global';
-const TOKEN = localStorage.getItem('token');
 
 export async function registerUser(user) {
 	return await fetch(`${BASE_URL}/auth/register`, {
@@ -16,7 +15,7 @@ export async function loginUser(data) {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json',
-			Authorization: `Bearer ${TOKEN}`,
+			Authorization: `Bearer ${localStorage.getItem('token')}`,
 		},
 		body: JSON.stringify(data),
 	}).then(response => {
@@ -43,11 +42,12 @@ export async function refreshUser() {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json',
+			Authorization: `Bearer ${localStorage.getItem('refreshToken')}`,
 		},
+		body: JSON.stringify({
+			sid: localStorage.getItem('sid'),
+		}),
 	}).then(response => {
-		if (response) {
-			localStorage.setItem('token', '');
-		}
 		return response.json();
 	});
 }
@@ -57,7 +57,7 @@ export async function fetchExpensesCategories() {
 		method: 'GET',
 		headers: {
 			'Content-Type': 'application/json',
-			Authorization: `Bearer ${TOKEN}`,
+			Authorization: `Bearer ${localStorage.getItem('token')}`,
 		},
 	}).then(response => {
 		return response.json();
@@ -69,7 +69,7 @@ export async function fetchIncomeCategories() {
 		method: 'GET',
 		headers: {
 			'Content-Type': 'application/json',
-			Authorization: `Bearer ${TOKEN}`,
+			Authorization: `Bearer ${localStorage.getItem('token')}`,
 		},
 	}).then(response => {
 		return response.json();
@@ -81,7 +81,7 @@ export async function getExpenses() {
 		method: 'GET',
 		headers: {
 			'Content-Type': 'application/json',
-			Authorization: `Bearer ${TOKEN}`,
+			Authorization: `Bearer ${localStorage.getItem('token')}`,
 		},
 	}).then(response => {
 		return response.json();
@@ -93,7 +93,7 @@ export async function getIncome() {
 		method: 'GET',
 		headers: {
 			'Content-Type': 'application/json',
-			Authorization: `Bearer ${TOKEN}`,
+			Authorization: `Bearer ${localStorage.getItem('token')}`,
 		},
 	}).then(response => {
 		return response.json();
@@ -105,7 +105,7 @@ export async function postTransactionExpense(data) {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json',
-			Authorization: `Bearer ${TOKEN}`,
+			Authorization: `Bearer ${localStorage.getItem('token')}`,
 		},
 		body: JSON.stringify(data),
 	}).then(response => {
@@ -119,7 +119,7 @@ export async function postTransactionIncome(data) {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json',
-			Authorization: `Bearer ${TOKEN}`,
+			Authorization: `Bearer ${localStorage.getItem('token')}`,
 		},
 		body: JSON.stringify({
 			...data,
@@ -138,7 +138,7 @@ export function deleteTransaction(id) {
 		method: 'DELETE',
 		headers: {
 			'Content-Type': 'application/json',
-			Authorization: `Bearer ${TOKEN}`,
+			Authorization: `Bearer ${localStorage.getItem('token')}`,
 		},
 	})
 		.then(response => {
@@ -153,7 +153,7 @@ export async function fetchPeriodData(date = '01') {
 		method: 'GET',
 		headers: {
 			'Content-Type': 'application/json',
-			Authorization: `Bearer ${TOKEN}`,
+			Authorization: `Bearer ${localStorage.getItem('token')}`,
 		},
 	}).then(response => {
 		console.log(response);
@@ -166,7 +166,7 @@ export async function getUser() {
 		method: 'GET',
 		headers: {
 			'Content-Type': 'application/json',
-			Authorization: `Bearer ${TOKEN}`,
+			Authorization: `Bearer ${localStorage.getItem('token')}`,
 		},
 	})
 		.then(response => {
