@@ -4,7 +4,7 @@ import Expenses from './Pages/Expenses/Expenses';
 import MainPage from './components/MainPage/MainPage';
 import NotFound from './components/NotFound/NotFound';
 import Income from './Pages/Income/Income';
-import Reports from './components/Reports/LinkToReports';
+import Reports from './components/Reports/Reports';
 
 function App() {
 	return (
