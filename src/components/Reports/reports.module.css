@@ -29,24 +29,116 @@
 }
 
 .section {
-	height: 320px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	height: 286px;
+	margin-bottom: 54px;
+	padding: 20px;
 	background-color: var(--background-gray);
 	border-bottom-left-radius: 110px;
 }
 
 .backToMainPage {
+	margin-bottom: 20px;
+	align-self: baseline;
 	width: 18px;
 	height: 12px;
 }
 
 .currentPeriod {
+	margin-bottom: 4px;
 	color: #52555fb2;
 }
 
 .statistics {
+	position: absolute;
+	top: 290px;
 	display: flex;
+	justify-content: space-around;
+	text-align: center;
+	padding-top: 25px;
 	width: 280px;
 	height: 85px;
 	box-shadow: 5px 10px 20px rgba(170, 178, 197, 0.4);
 	border-radius: 20px;
+	background-color: #ffffff;
+}
+
+.statisticsExpenses,
+.statisticsIncome {
+	font-weight: 700;
+	font-size: 14px;
+	line-height: 16px;
+	color: #52555f;
+}
+
+.balanceExpenses,
+.balanceIncome {
+	font-weight: 700;
+	letter-spacing: 0.04em;
+}
+.balanceExpenses {
+	color: #e53935;
+}
+
+.balanceIncome {
+	color: #407946;
+}
+
+.wrap {
+	width: 50%;
+	position: relative;
+}
+
+.wrap:not(:last-child):after {
+	position: absolute;
+	top: -16px;
+	left: 140px;
+	display: block;
+	content: '';
+	width: 1px;
+	height: 70px;
+	background-color: #e0e5eb;
+}
+
+.period {
+	margin: 0 8px 0 8px;
+	font-weight: 700;
+	font-size: 14px;
+	line-height: 16px;
+	text-align: center;
+	letter-spacing: 0.02em;
+	text-transform: uppercase;
+	font-family: 'Roboto';
+}
+
+.periodContainer {
+	margin-bottom: 32px;
+	display: flex;
+	align-items: center;
+}
+
+.arrowBtnRight {
+	border: none;
+	background-image: url(../../Icons/rightArrow.svg);
+	background-color: inherit;
+	background-repeat: no-repeat;
+	background-position: center;
+	width: 6px;
+	height: 10px;
+}
+
+.arrowBtnLeft {
+	background-color: inherit;
+	border: none;
+	background-image: url(../../Icons/leftArrow.svg);
+	background-position: center;
+	background-repeat: no-repeat;
+	width: 6px;
+	height: 10px;
+}
+
+.balanceTitle {
+	margin-bottom: 8px;
 }

@@ -123,7 +123,6 @@ export default function TableModule({ expensesCategories, value }) {
 								className={s.input}
 								placeholder="0.00"
 							/>
-							<input>sdaf</input>
 						</label>
 					</div>
 				</div>

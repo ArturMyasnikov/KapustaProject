@@ -2,14 +2,16 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { logOut } from '../../redux/authSlice';
 import s from './header.module.css';
-import { refreshUser } from "../../api";
+import { refreshUser } from '../../api';
 import { refreshToken } from '../../redux/authSlice';
-import { useEffect } from "react";
+import { useEffect } from 'react';
 
 export default function UserMenu() {
 	const dispatch = useDispatch();
 	const nav = useNavigate();
 	const login = useSelector(state => state.user.login.userData.email);
+	const state = useSelector(state => state.user.login.userData);
+	console.log(state);
 
 	const logOutUser = () => {
 		dispatch(logOut());
@@ -17,8 +19,10 @@ export default function UserMenu() {
 	};
 
 	const onRefreshToken = async () => {
-		if (!login) { // we need check this condition for right refresh process
+		if (!login) {
+			// we need check this condition for right refresh process
 			const newAuthData = await refreshUser();
+			// console.log('newAuthData', newAuthData);
 
 			localStorage.setItem('token', newAuthData.newAccessToken);
 			localStorage.setItem('refreshToken', newAuthData.newRefreshToken);
@@ -26,9 +30,10 @@ export default function UserMenu() {
 			dispatch(refreshToken(newAuthData));
 		}
 	};
-
+	// console.log('onRefreshToken1', onRefreshToken());
 	useEffect(() => {
-		onRefreshToken() // we need call it only once for current user sid
+		// console.log('onRefreshToken2', onRefreshToken());
+		onRefreshToken(); // we need call it only once for current user sid
 	}, []);
 
 	return (

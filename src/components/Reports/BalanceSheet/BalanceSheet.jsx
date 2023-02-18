@@ -8,7 +8,7 @@ export default function BalanceSheet() {
 		<div className={s.balanceWrapper}>
 			<p className={s.balanceText}>Balance:</p>
 			<div className={s.balanceContainer}>
-				<div className={s.currentBalance}>{`${balance} UAH`}</div>
+				<p className={s.currentBalance}>{`${balance} UAH`}</p>
 				<button type="button" className={s.balanceBtn}>
 					Confirm
 				</button>

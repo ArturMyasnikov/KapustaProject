@@ -114,7 +114,6 @@ export async function postTransactionExpense(data) {
 }
 
 export async function postTransactionIncome(data) {
-	console.log('data', data);
 	return await fetch(`${BASE_URL}/transaction/income`, {
 		method: 'POST',
 		headers: {
@@ -127,7 +126,6 @@ export async function postTransactionIncome(data) {
 		}),
 	})
 		.then(response => {
-			console.log(response);
 			return response.json();
 		})
 		.catch(error => console.log('postTransactionIncomeError', error));
@@ -156,7 +154,6 @@ export async function fetchPeriodData(date = '01') {
 			Authorization: `Bearer ${localStorage.getItem('token')}`,
 		},
 	}).then(response => {
-		console.log(response);
 		return response.json();
 	});
 }

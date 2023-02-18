@@ -8,7 +8,7 @@ import { fetchExpensesCategories, getUser } from '../../api';
 import MobileTable from '../../components/Table/MobileTable';
 import useWidth from '../../hooks/useWidth';
 import s from './expenses.module.css';
-import BalanceSheet from '../../components/BalanceSheet/BalanceSheet';
+import BalanceSheet from '../../components/Reports/BalanceSheet/BalanceSheet';
 // import WelcomeHint from '../WelcomeHint/WelcomeHint';
 
 export default function Expenses() {
@@ -24,7 +24,6 @@ export default function Expenses() {
 			}
 		});
 	}, []);
-	console.log('userInfo', userInfo);
 	return (
 		<>
 			<Header />
