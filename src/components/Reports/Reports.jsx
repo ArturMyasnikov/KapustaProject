@@ -27,6 +27,7 @@ export default function Report() {
 	const [expensesTotal, setExpensesTotal] = useState();
 	const [incomeTotal, setIncomeTotal] = useState();
 	const [currentMonthIndex, setCurrentMonthIndex] = useState(0);
+	const [currentPage, setCurrentPage] = useState(1);
 
 	const monthNames = Object.values(monthes);
 	const currentMonth = monthNames[currentMonthIndex];
@@ -45,7 +46,10 @@ export default function Report() {
 
 	useEffect(() => {
 		fetchPeriodData().then(res =>
-			setExpensesTotal(res.expenses.expenseTotal,setIncomeTotal(res?.incomes.incomeTotal))
+			setExpensesTotal(
+				res.expenses.expenseTotal,
+				setIncomeTotal(res?.incomes.incomeTotal)
+			)
 		);
 	}, []);
 
@@ -84,8 +88,11 @@ export default function Report() {
 					</div>
 				</div>
 			</section>
-			<ExpesesCategories />
-			<ExpensesList />
+			<ExpesesCategories
+				currentPage={currentPage}
+				setCurrentPage={setCurrentPage}
+			/>
+			<ExpensesList currentPage={currentPage} />
 		</>
 	);
 }

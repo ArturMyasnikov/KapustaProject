@@ -31,12 +31,13 @@ const categoryIcons = {
 	Образование: <Education />,
 	Прочее: <Other />,
 	'З/П': <Salary />,
-	'Доп. Доход': <AdditionalIncome />,
+	'Доп. доход': <AdditionalIncome />,
 };
 
-export default function ExpensesList() {
+export default function ExpensesList({ currentPage }) {
 	const [categoriesExpense, setCategoriesExpense] = useState();
 	const [categoriesIncome, setCategoriesIncome] = useState();
+
 	const transactions = useSelector(
 		state => state.user.login.userData.transactions
 	);
@@ -92,7 +93,9 @@ export default function ExpensesList() {
 	return (
 		<>
 			<section className={s.section}>
-				<ul className={s.categoryList}>{renderExpenses}</ul>
+				<ul className={s.categoryList}>
+					{currentPage === 1 ? renderExpenses : renderIncome}
+				</ul>
 			</section>
 		</>
 	);

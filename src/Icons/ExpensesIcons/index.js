@@ -9,6 +9,8 @@ import Products from './Products';
 import SportsHobbies from './SportsHobbies';
 import Technique from './Technique';
 import Transport from './Transport';
+import Salary from './Salary';
+import AdditionalIncome from './AdditionalIncome';
 
 export {
 	Transport,
@@ -22,4 +24,6 @@ export {
 	SportsHobbies,
 	Housing,
 	Education,
+	AdditionalIncome,
+	Salary,
 };
