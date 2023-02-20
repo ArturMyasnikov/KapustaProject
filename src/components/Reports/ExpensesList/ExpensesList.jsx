@@ -37,10 +37,17 @@ const categoryIcons = {
 export default function ExpensesList({ currentPage }) {
 	const [categoriesExpense, setCategoriesExpense] = useState();
 	const [categoriesIncome, setCategoriesIncome] = useState();
+	const [selectedCategory, setSelectedCategory] = useState('');
 
 	const transactions = useSelector(
 		state => state.user.login.userData.transactions
 	);
+
+	function handleSelect(category) {
+		setSelectedCategory(category);
+	}
+
+	// const className = isSelected ? 'selected' : 'categoryIcon';
 
 	const getCategoryAmount = () => {
 		const obj = {};
@@ -71,7 +78,15 @@ export default function ExpensesList({ currentPage }) {
 		return (
 			<li key={category} className={s.categoryCard}>
 				<p className={s.sum}>{expense[category] ?? 0}</p>
-				<button type="button" className={s.categoryIcon}>
+				<button
+					type="button"
+					className={
+						selectedCategory === category
+							? `${s.categoryIcon} ${s.selected}`
+							: s.categoryIcon
+					}
+					onClick={() => handleSelect(category)}
+				>
 					{categoryIcons[category]}
 				</button>
 				<span className={s.categoryName}>{category}</span>

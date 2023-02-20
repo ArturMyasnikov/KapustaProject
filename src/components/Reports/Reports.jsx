@@ -4,9 +4,10 @@ import Header from '../Header/Header';
 import BackToMain from '../../Icons/componentIcon/backToMainArrow';
 import ExpesesCategories from './ExpesesCategories/ExpesesCategories';
 import s from './reports.module.css';
-import { fetchPeriodData } from '../../api';
+import { fetchPeriodData, getExpenses } from '../../api';
 import BalanceSheet from './BalanceSheet/BalanceSheet';
 import ExpensesList from './ExpensesList/ExpensesList';
+import ExpensesChart from './ExpensesChart/ExpensesChart';
 
 const monthes = {
 	Январь: 'January',
@@ -28,7 +29,8 @@ export default function Report() {
 	const [incomeTotal, setIncomeTotal] = useState();
 	const [currentMonthIndex, setCurrentMonthIndex] = useState(0);
 	const [currentPage, setCurrentPage] = useState(1);
-
+	const [expenses, setExpenses] = useState();
+	console.log('expenses', expenses);
 	const monthNames = Object.values(monthes);
 	const currentMonth = monthNames[currentMonthIndex];
 
@@ -52,6 +54,16 @@ export default function Report() {
 			)
 		);
 	}, []);
+
+	useEffect(() => {
+		getExpenses().then(res => {
+			if (Array.isArray(res?.expenses)) {
+				setExpenses(res.expenses);
+			}
+		});
+	}, []);
+
+	console.log('resLORAAAAAAAA', expenses);
 
 	return (
 		<>
@@ -93,6 +105,7 @@ export default function Report() {
 				setCurrentPage={setCurrentPage}
 			/>
 			<ExpensesList currentPage={currentPage} />
+			<ExpensesChart expenses={expenses} />
 		</>
 	);
 }

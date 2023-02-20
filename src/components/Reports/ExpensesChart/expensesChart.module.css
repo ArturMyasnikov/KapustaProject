@@ -1,0 +1,24 @@
+.container {
+	text-align: center;
+	padding: 0px 20px 0px 20px;
+}
+
+.item {
+	width: 280px;
+	display: flex;
+	flex-direction: column;
+	height: 35px;
+}
+
+.wrapper {
+	margin-bottom: 8px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.chart {
+	height: 15px;
+	width: 270px;
+	background: #ff751d;
+	border-radius: 0px 10px 10px 0px;
+}

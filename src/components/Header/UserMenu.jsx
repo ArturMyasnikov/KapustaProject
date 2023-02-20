@@ -10,8 +10,8 @@ export default function UserMenu() {
 	const dispatch = useDispatch();
 	const nav = useNavigate();
 	const login = useSelector(state => state.user.login.userData.email);
-	const state = useSelector(state => state.user.login.userData);
-	console.log(state);
+	// const state = useSelector(state => state.user.login.userData.transactions);
+	// console.log(state);
 
 	const logOutUser = () => {
 		dispatch(logOut());

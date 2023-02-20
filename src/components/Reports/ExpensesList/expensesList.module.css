@@ -39,9 +39,26 @@
 }
 
 .categoryIcon {
-	height: 58px;
+	background-color: #f5f6fb;
+	border-radius: 20px;
+	width: 58px;
+	height: 64px;
 	border: none;
-	background: transparent;
+}
+
+.categoryIcon:hover path {
+	fill: #ff751d;
+}
+
+.selected path {
+	fill: #ff751d;
+}
+
+.categoryIcon.selected {
+	background-color: #ffdac0;
+}
+.categoryIcon:hover {
+	background-color: #ffdac0;
 }
 
 .categoryName {

@@ -22,6 +22,7 @@ export default function TableModule({ expensesCategories, value }) {
 
 	useEffect(() => {
 		getExpenses().then(res => {
+			console.log('resLORAAAAAAAA', res);
 			setExpenses(res.monthsStats);
 			if (Array.isArray(res?.expenses)) {
 				setExpenses(res.expenses);
