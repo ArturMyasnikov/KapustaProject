@@ -47,8 +47,6 @@ export default function ExpensesList({ currentPage }) {
 		setSelectedCategory(category);
 	}
 
-	// const className = isSelected ? 'selected' : 'categoryIcon';
-
 	const getCategoryAmount = () => {
 		const obj = {};
 		for (let i = 0; i < transactions.length; i++) {

@@ -29,7 +29,7 @@ export default function TabsComponent({ expensesCategories }) {
 		});
 	}, []);
 
-	const handleTabChange = newValue => {
+	const handleTabChange = (event, newValue) => {
 		setValue(newValue);
 	};
 

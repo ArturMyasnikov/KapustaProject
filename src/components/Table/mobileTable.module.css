@@ -68,7 +68,6 @@
 
 .sumExpense {
 	color: #e7192e;
-	font-size: 12px;
 	font-weight: 700;
 	letter-spacing: 0.04em;
 	line-height: 1.17;
@@ -78,6 +77,9 @@
 
 .sumIncone {
 	color: #407946;
+	font-weight: 700;
+	letter-spacing: 0.04em;
+	line-height: 1.17;
 }
 .deleteBtn {
 	background: none;

@@ -6,6 +6,7 @@ import Table from '../Table/Table';
 import SummaryForDesktop from '../Summary/SummaryForDesktop';
 import { postTransactionExpense, postTransactionIncome } from '../../api';
 import s from './tableModule.module.css';
+import AddTransactionForm from '../AddTransactionForm.jsx/AddTransactionForm';
 
 const defaultTransactionValues = {
 	date: new Date(),
@@ -22,7 +23,6 @@ export default function TableModule({ expensesCategories, value }) {
 
 	useEffect(() => {
 		getExpenses().then(res => {
-			console.log('resLORAAAAAAAA', res);
 			setExpenses(res.monthsStats);
 			if (Array.isArray(res?.expenses)) {
 				setExpenses(res.expenses);
@@ -44,63 +44,69 @@ export default function TableModule({ expensesCategories, value }) {
 		});
 	}, []);
 
-	const handleInputChange = event => {
-		const { name, value } = event.target;
+	// const handleInputChange = event => {
+	// 	const { name, value } = event.target;
 
-		setTransaction(prevState => ({ ...prevState, [name]: value }));
-	};
+	// 	setTransaction(prevState => ({ ...prevState, [name]: value }));
+	// };
 
-	const onSaveTransaction = () => {
-		const prepareData = {
-			...transaction,
-			date: formatDate(transaction.date),
-		};
-		if (value === '1') {
-			postTransactionExpense(prepareData).then(expense => {
-				if (expense) {
-					setExpenses(prevState => {
-						return [...prevState, expense.transaction];
-					});
-				}
-			});
-		} else {
-			postTransactionIncome(prepareData).then(income => {
-				if (income) {
-					setIncome(prevState => {
-						return [...prevState, income.transaction];
-					});
-				}
-			});
-		}
-		setTransaction(defaultTransactionValues);
-	};
+	// const onSaveTransaction = () => {
+	// 	const prepareData = {
+	// 		...transaction,
+	// 		date: formatDate(transaction.date),
+	// 	};
+	// 	if (value === '1') {
+	// 		postTransactionExpense(prepareData).then(expense => {
+	// 			if (expense) {
+	// 				setExpenses(prevState => {
+	// 					return [...prevState, expense.transaction];
+	// 				});
+	// 			}
+	// 		});
+	// 	} else {
+	// 		postTransactionIncome(prepareData).then(income => {
+	// 			if (income) {
+	// 				setIncome(prevState => {
+	// 					return [...prevState, income.transaction];
+	// 				});
+	// 			}
+	// 		});
+	// 	}
+	// 	setTransaction(defaultTransactionValues);
+	// };
 
-	function formatDate(date) {
-		var d = new Date(date),
-			month = '' + (d.getMonth() + 1),
-			day = '' + d.getDate(),
-			year = d.getFullYear();
+	// function formatDate(date) {
+	// 	var d = new Date(date),
+	// 		month = '' + (d.getMonth() + 1),
+	// 		day = '' + d.getDate(),
+	// 		year = d.getFullYear();
 
-		if (month.length < 2) month = '0' + month;
-		if (day.length < 2) day = '0' + day;
+	// 	if (month.length < 2) month = '0' + month;
+	// 	if (day.length < 2) day = '0' + day;
 
-		return [year, month, day].join('-');
-	}
+	// 	return [year, month, day].join('-');
+	// }
 
-	const isButtonDisabled =
-		Boolean(transaction.category) &&
-		Boolean(transaction.description) &&
-		Boolean(transaction.amount);
+	// const isButtonDisabled =
+	// 	Boolean(transaction.category) &&
+	// 	Boolean(transaction.description) &&
+	// 	Boolean(transaction.amount);
 
 	return (
 		<div className={s.table}>
 			<div className={s.desktopWidthWrap}>
-				<div className={s.wrapper}>
+				{/* <div className={s.wrapper}>
 					<BasicDatePicker
 						value={transaction.date}
 						setTransaction={setTransaction}
-					/>
-					<div className={s.productsWrap}>
+					/> */}
+				<AddTransactionForm
+					expensesCategories={expensesCategories}
+					value={value}
+					setExpenses={setExpenses}
+					setIncome={setIncome}
+				/>
+				{/* <div className={s.productsWrap}>
 						<input
 							type="text"
 							name="description"
@@ -125,9 +131,9 @@ export default function TableModule({ expensesCategories, value }) {
 								placeholder="0.00"
 							/>
 						</label>
-					</div>
-				</div>
-				<div className={s.btnWrap}>
+					</div> */}
+				{/* </div> */}
+				{/* <div className={s.btnWrap}>
 					<button
 						type="button"
 						disabled={!isButtonDisabled}
@@ -139,7 +145,7 @@ export default function TableModule({ expensesCategories, value }) {
 					<button type="button" className={s.clearBtn}>
 						Clear
 					</button>
-				</div>
+				</div> */}
 			</div>
 			<div className={s.tableAndSummaryWrap}>
 				<Table

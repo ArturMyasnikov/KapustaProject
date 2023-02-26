@@ -2,3 +2,9 @@
 	display: inline-flex;
 	align-self: center;
 }
+
+@media screen and (max-width: 768px) {
+	.calendarWrap {
+		display: none;
+	}
+}

@@ -4,7 +4,7 @@ import Header from '../Header/Header';
 import BackToMain from '../../Icons/componentIcon/backToMainArrow';
 import ExpesesCategories from './ExpesesCategories/ExpesesCategories';
 import s from './reports.module.css';
-import { fetchPeriodData, getExpenses } from '../../api';
+import { fetchPeriodData, getExpenses, getIncome } from '../../api';
 import BalanceSheet from './BalanceSheet/BalanceSheet';
 import ExpensesList from './ExpensesList/ExpensesList';
 import ExpensesChart from './ExpensesChart/ExpensesChart';
@@ -30,7 +30,7 @@ export default function Report() {
 	const [currentMonthIndex, setCurrentMonthIndex] = useState(0);
 	const [currentPage, setCurrentPage] = useState(1);
 	const [expenses, setExpenses] = useState();
-	console.log('expenses', expenses);
+	const [incomes, setIncomes] = useState();
 	const monthNames = Object.values(monthes);
 	const currentMonth = monthNames[currentMonthIndex];
 
@@ -63,30 +63,40 @@ export default function Report() {
 		});
 	}, []);
 
-	console.log('resLORAAAAAAAA', expenses);
+	useEffect(() => {
+		getIncome().then(res => {
+			if (Array.isArray(res?.incomes)) {
+				setIncomes(res.incomes);
+			}
+		});
+	}, []);
 
 	return (
 		<>
 			<Header />
 			<section className={s.section}>
-				<NavLink className={s.backToMainPage} to="/">
-					{<BackToMain />}
-				</NavLink>
-				<span className={s.currentPeriod}>Current period:</span>
-				<div className={s.periodContainer}>
-					<button
-						type="button"
-						className={s.arrowBtnLeft}
-						onClick={handlePrevMonth}
-					></button>
-					<p className={s.period}>{currentMonth}</p>
-					<button
-						type="button"
-						className={s.arrowBtnRight}
-						onClick={handleNextMonth}
-					></button>
+				<div className={s.container}>
+					<NavLink className={s.backToMainPage} to="/">
+						{<BackToMain />}
+					</NavLink>
+					<div className={s.periodContainer}>
+						Current period:
+						<div className={s.periodWrap}>
+							<button
+								type="button"
+								className={s.arrowBtnLeft}
+								onClick={handlePrevMonth}
+							></button>
+							<p className={s.period}>{currentMonth}</p>
+							<button
+								type="button"
+								className={s.arrowBtnRight}
+								onClick={handleNextMonth}
+							></button>
+						</div>
+					</div>
+					<BalanceSheet />
 				</div>
-				<BalanceSheet />
 				<div className={s.statistics}>
 					<div className={s.wrap}>
 						<p className={s.statisticsExpenses}>Expenses:</p>
@@ -105,7 +115,26 @@ export default function Report() {
 				setCurrentPage={setCurrentPage}
 			/>
 			<ExpensesList currentPage={currentPage} />
-			<ExpensesChart expenses={expenses} />
+			<ExpensesChart
+				expenses={expenses}
+				incomes={incomes}
+				currentPage={currentPage}
+			/>
 		</>
 	);
 }
+
+function pickIt(arr) {
+	var odd = [],
+		even = [];
+	for (let i = 1; i <= arr.length; i++) {
+		if (i % 2 === 0 && i !== 0) {
+			even.push(i);
+		} else {
+			odd.push(i);
+		}
+	}
+	return [odd, even];
+}
+
+console.log(pickIt([1, 2]));

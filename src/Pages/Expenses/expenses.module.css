@@ -26,7 +26,6 @@
 	text-align: end;
 	border: 2px solid #ffffff;
 	border-radius: 22px 0px 0px 22px;
-
 	font-weight: 700;
 	text-transform: uppercase;
 	font-size: 12px;
@@ -43,6 +42,13 @@
 	border-radius: 0px 22px 22px 0px;
 	text-transform: uppercase;
 	font-size: 14px;
+}
+
+.linkWrap {
+	margin-bottom: 40px;
+}
+.navLink {
+	text-decoration: none;
 }
 
 @media screen and (max-width: 767px) {
@@ -117,6 +123,10 @@
 		display: flex;
 		align-items: center;
 		width: 334px;
+	}
+
+	.linkWrap {
+		order: 1;
 	}
 }
 
