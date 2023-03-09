@@ -79,6 +79,7 @@
 
 @media screen and (max-width: 767px) {
 	.productsWrap {
+		width: unset;
 		display: flex;
 		margin-bottom: 40px;
 		flex-direction: column;
@@ -92,5 +93,32 @@
 		border: 2px solid #ffffff;
 		border-top-left-radius: 20px;
 		border-top-right-radius: 20px;
+	}
+
+	.selectWrapper {
+		margin-bottom: 32px;
+		width: 280px;
+		height: 42px;
+		border-bottom-right-radius: 20px;
+		border: 2px solid #ffffff;
+	}
+
+	.wrapper {
+		margin-bottom: 80px;
+	}
+
+	.calculate {
+		width: 180px;
+		border-radius: 22px;
+		border: 2px solid #ffffff;
+	}
+
+	.input {
+		background-color: inherit;
+		width: 100%;
+		color: #000;
+	}
+	.input::placeholder {
+		color: #000;
 	}
 }

@@ -52,7 +52,7 @@ export default function Expenses() {
 					{width > 767 && (
 						<TabsComponent expensesCategories={expensesCategories} />
 					)}
-					<SummaryForDesktop monthsStats={monthsStats} />
+					{/* <SummaryForDesktop monthsStats={monthsStats} /> */}
 					{/* <WelcomeHint /> */}
 				</div>
 			</section>

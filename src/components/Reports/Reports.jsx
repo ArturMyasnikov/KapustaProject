@@ -123,18 +123,3 @@ export default function Report() {
 		</>
 	);
 }
-
-function pickIt(arr) {
-	var odd = [],
-		even = [];
-	for (let i = 1; i <= arr.length; i++) {
-		if (i % 2 === 0 && i !== 0) {
-			even.push(i);
-		} else {
-			odd.push(i);
-		}
-	}
-	return [odd, even];
-}
-
-console.log(pickIt([1, 2]));

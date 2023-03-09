@@ -1,4 +1,4 @@
-.container {
+/* .container {
 	background-color: #fff;
 	display: flex;
 	justify-content: center;
@@ -37,6 +37,37 @@
 	}
 }
 
+@media screen and (max-width: 767px) {
+	.item {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		height: auto;
+	}
+	.chart {
+		height: 15px;
+		max-width: 270px;
+		width: 100%;
+		margin-left: 8px;
+		background: #ff751d;
+		border-radius: 10px;
+	}
+	.description {
+		width: 50%;
+	}
+	.descriptionOnTablet {
+		display: none;
+	}
+	.chartList {
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+	.item:not(:last-child) {
+		margin-bottom: 16px;
+	}
+}
 @media screen and (min-width: 768px) {
 	.container {
 		width: 704px;
@@ -83,6 +114,134 @@
 	.description {
 		display: none;
 	}
+	.descriptionOnTablet {
+		display: block;
+	}
+}
+
+@media screen and (min-width: 1280px) {
+	.container {
+		width: 1034px;
+		padding-left: 200px;
+		padding-right: 200px;
+	}
+} */
+/* ---------------------------------------------------------------------- */
+.container {
+	background-color: #fff;
+	display: flex;
+	justify-content: center;
+	padding: 20px;
+}
+
+.item {
+	color: #52555f;
+	width: 280px;
+	display: block;
+	flex-direction: column;
+	height: 35px;
+	letter-spacing: 0.02em;
+}
+
+.wrapper {
+	margin-bottom: 8px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.chart {
+	height: 15px;
+	width: 270px;
+	background: #ff751d;
+	border-radius: 0px 10px 10px 0px;
+}
+
+@media screen and (max-width: 767px) {
+	.item:not(:last-child) {
+		margin-bottom: 16px;
+	}
+
+	.descriptionOnTablet {
+		display: none;
+	}
+
+	.item {
+		align-items: center;
+		height: auto;
+	}
+
+	.chart {
+		height: 15px;
+		max-width: 270px;
+		width: 100%;
+		margin-left: 8px;
+		background: #ff751d;
+		border-radius: 0px 10px 10px 0px;
+	}
+
+	.description {
+		width: 50%;
+	}
+
+	.chartList {
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+
+	.item:not(:last-child) {
+		margin-bottom: 16px;
+	}
+}
+
+@media screen and (min-width: 768px) {
+	.container {
+		width: 704px;
+		margin: 0 auto;
+		box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
+		border-radius: 30px;
+		display: flex;
+	}
+
+	.item {
+		display: flex;
+		width: unset;
+		margin-bottom: 0px;
+		height: auto;
+		align-items: center;
+	}
+
+	.item:not(:last-child) {
+		margin-right: 26px;
+	}
+
+	.itemIncome {
+		margin-right: 24px;
+		color: #52555f;
+		display: flex;
+		flex-direction: column;
+		height: 35px;
+		letter-spacing: 0.02em;
+		height: auto;
+		align-items: center;
+	}
+
+	.chartList {
+		display: flex;
+		align-items: end;
+		justify-content: center;
+	}
+
+	.chart {
+		width: 38px;
+		height: 328px;
+		border-radius: 10px 10px 0px 0px;
+	}
+
+	.description {
+		display: none;
+	}
+
 	.descriptionOnTablet {
 		display: block;
 	}

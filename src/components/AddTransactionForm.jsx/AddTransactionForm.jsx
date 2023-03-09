@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import SelectComponent from '../Select/Select';
 import { postTransactionExpense, postTransactionIncome } from '../../api';
 import s from './addTransactionForm.module.css';
@@ -11,15 +11,8 @@ const defaultTransactionValues = {
 	amount: '',
 };
 
-export default function AddTransactionForm({
-	expensesCategories,
-	setExpenses,
-	setIncome,
-	value,
-}) {
+export default function AddTransactionForm({ setExpenses, setIncome, value }) {
 	const [transaction, setTransaction] = useState(defaultTransactionValues);
-	// const [expenses, setExpenses] = useState([]);
-	// const [income, setIncome] = useState([]);
 
 	const handleInputChange = event => {
 		const { name, value } = event.target;
@@ -85,12 +78,13 @@ export default function AddTransactionForm({
 						className={s.ProductDescription}
 						placeholder="Product description"
 					/>
-					<SelectComponent
-						value={transaction.category}
-						setTransaction={setTransaction}
-						expensesCategories={expensesCategories}
-					/>
-
+					<div className={s.selectWrapper}>
+						<SelectComponent
+							onSaveTransaction={onSaveTransaction}
+							value={transaction.category}
+							setTransaction={setTransaction}
+						/>
+					</div>
 					<label htmlFor="amount" className={s.calculate}>
 						<input
 							type="number"
@@ -98,7 +92,7 @@ export default function AddTransactionForm({
 							value={transaction.amount}
 							onChange={handleInputChange}
 							className={s.input}
-							placeholder="0.00"
+							placeholder="0.00 UAH"
 						/>
 					</label>
 				</div>
