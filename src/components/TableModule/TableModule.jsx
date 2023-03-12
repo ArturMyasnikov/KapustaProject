@@ -15,24 +15,17 @@ import AddTransactionForm from '../AddTransactionForm.jsx/AddTransactionForm';
 // 	amount: '',
 // };
 
-export default function TableModule({ expensesCategories, value }) {
-	// const [transaction, setTransaction] = useState(defaultTransactionValues);
+export default function TableModule({ categories, value }) {
 	const [expenses, setExpenses] = useState([]);
 	const [income, setIncome] = useState([]);
 	const [monthsStats, setMonthsStats] = useState([]);
 
 	useEffect(() => {
 		getExpenses().then(res => {
-			setExpenses(res.monthsStats);
+			setMonthsStats(res.monthsStats);
 			if (Array.isArray(res?.expenses)) {
 				setExpenses(res.expenses);
 			}
-		});
-	}, []);
-
-	useEffect(() => {
-		getExpenses().then(res => {
-			setMonthsStats(res.monthsStats);
 		});
 	}, []);
 
@@ -53,7 +46,7 @@ export default function TableModule({ expensesCategories, value }) {
 						setTransaction={setTransaction}
 					/> */}
 				<AddTransactionForm
-					expensesCategories={expensesCategories}
+					categories={categories}
 					value={value}
 					setExpenses={setExpenses}
 					setIncome={setIncome}

@@ -49,10 +49,10 @@ export default function TabsComponent({ expensesCategories }) {
 					</TabList>
 				</Box>
 				<TabPanel value="1" sx={{ padding: '0' }}>
-					<TableModule expensesCategories={expensesCategories} value={value} />
+					<TableModule categories={expensesCategories} value={value} />
 				</TabPanel>
 				<TabPanel value="2" sx={{ padding: '0' }}>
-					<TableModule expensesCategories={incomeCategories} />
+					<TableModule categories={incomeCategories} value={value} />
 				</TabPanel>
 			</TabContext>
 		</Box>
