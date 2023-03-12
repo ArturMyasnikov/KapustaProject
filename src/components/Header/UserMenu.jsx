@@ -18,23 +18,23 @@ export default function UserMenu() {
 		nav('/', { replace: true });
 	};
 
-	const onRefreshToken = async () => {
-		if (!login) {
-			// we need check this condition for right refresh process
-			const newAuthData = await refreshUser();
-			// console.log('newAuthData', newAuthData);
-
-			localStorage.setItem('token', newAuthData.newAccessToken);
-			localStorage.setItem('refreshToken', newAuthData.newRefreshToken);
-			localStorage.setItem('sid', newAuthData.newSid);
-			dispatch(refreshToken(newAuthData));
-		}
-	};
-	// console.log('onRefreshToken1', onRefreshToken());
-	useEffect(() => {
-		// console.log('onRefreshToken2', onRefreshToken());
-		onRefreshToken(); // we need call it only once for current user sid
-	}, []);
+	// const onRefreshToken = async () => {
+	// 	if (!login) {
+	// 		// we need check this condition for right refresh process
+	// 		const newAuthData = await refreshUser();
+	// 		// console.log('newAuthData', newAuthData);
+	//
+	// 		localStorage.setItem('token', newAuthData.newAccessToken);
+	// 		localStorage.setItem('refreshToken', newAuthData.newRefreshToken);
+	// 		localStorage.setItem('sid', newAuthData.newSid);
+	// 		dispatch(refreshToken(newAuthData));
+	// 	}
+	// };
+	// // console.log('onRefreshToken1', onRefreshToken());
+	// useEffect(() => {
+	// 	// console.log('onRefreshToken2', onRefreshToken());
+	// 	onRefreshToken(); // we need call it only once for current user sid
+	// }, []);
 
 	return (
 		<div className={s.nav}>
