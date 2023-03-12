@@ -62,7 +62,7 @@ const validateJwt = async (jwt, config) => {
                 isRefreshRequest = false;
 
                 result = await refreshToken(config);
-                console.log('result', result);
+
                 localStorage.setItem('token', result.newAccessToken);
                 localStorage.setItem('refreshToken', result.newRefreshToken);
                 localStorage.setItem('sid', result.newSid);
