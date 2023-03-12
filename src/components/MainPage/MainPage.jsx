@@ -1,8 +1,16 @@
 import Header from '../Header/Header';
 import MainPageModal from '../MainPageModal/MainPageModal';
+import { Navigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import s from './mainPage.module.css';
 
 export default function MainPage() {
+	const isLoggedIn = useSelector(state => state.user.isLoggedIn);
+
+	if (isLoggedIn) {
+		return <Navigate to="expenses" />;
+	}
+
 	return (
 		<>
 			<Header />

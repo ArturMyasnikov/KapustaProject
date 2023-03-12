@@ -12,8 +12,14 @@ html {
 body {
 	margin: 0;
 	font-weight: 400;
+	font-size: 12px;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+}
+
+button {
+	cursor: pointer;
+	padding: 0;
 }
 
 img {
@@ -32,8 +38,10 @@ code {
 	box-sizing: border-box;
 }
 
+ul,
 p {
 	margin: 0;
+	padding: 0;
 }
 
 li {

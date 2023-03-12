@@ -1,0 +1,53 @@
+.titleWrap {
+	width: 213px;
+	height: 38px;
+	margin-bottom: 4px;
+	background-color: #f5f6fb;
+	border-radius: 16px 16px 0px 0px;
+}
+
+.title {
+	padding: 10px 0;
+	font-weight: 700;
+	text-align: center;
+	letter-spacing: 0.02em;
+	text-transform: uppercase;
+}
+
+.list {
+	width: 213px;
+	height: 238px;
+}
+
+.item {
+	height: 38px;
+	background-color: #f5f6fb;
+	margin-bottom: 4px;
+	padding: 14px 12px;
+	color: #52555f;
+}
+
+.item:last-child {
+	border-bottom-right-radius: 16px;
+}
+
+@media screen and (min-width: 767px) {
+	.summary {
+		background-image: url(../../Icons/tabletFooterImg.svg);
+		background-repeat: no-repeat;
+		background-position-x: right;
+	}
+}
+@media screen and (min-width: 1279px) {
+	.summary {
+		margin-top: 48px;
+		display: flex;
+		flex-direction: column;
+		background-image: unset;
+	}
+}
+
+.flexItem {
+	display: flex;
+	justify-content: space-between;
+}

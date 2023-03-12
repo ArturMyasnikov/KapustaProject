@@ -1,0 +1,128 @@
+.container {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	padding: 56px 20px 55px;
+	max-width: 480px;
+	margin: 0 auto;
+}
+
+.rowWrap {
+	margin-bottom: 12px;
+	width: 100%;
+}
+
+.title {
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+	color: #52555f;
+	display: block;
+	font-size: 12px;
+	font-weight: 700;
+	letter-spacing: 0.04em;
+	line-height: 1.17;
+	margin-right: 120px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.row {
+	margin: 0;
+	padding: 0;
+	align-items: center;
+	border-bottom: 1px solid #f5f6fb;
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+}
+
+.textWrap {
+	display: flex;
+	width: 100%;
+}
+
+.textDate {
+	height: 7px;
+	margin-right: 5px;
+	text-align: left;
+	width: 70px;
+	color: #52555f;
+	font-size: 11px;
+	letter-spacing: 0.04em;
+	line-height: 1.12;
+}
+
+.textCategory {
+	min-width: 97px;
+	color: #52555f;
+	font-size: 11px;
+	letter-spacing: 0.04em;
+	line-height: 1.12;
+}
+
+.sumAndBtnContainer {
+	align-items: center;
+	display: flex;
+	padding-bottom: 12px;
+}
+
+.sumExpense {
+	color: #e7192e;
+	font-weight: 700;
+	letter-spacing: 0.04em;
+	line-height: 1.17;
+	text-align: center;
+	width: 80px;
+}
+
+.sumIncone {
+	color: #407946;
+	font-weight: 700;
+	letter-spacing: 0.04em;
+	line-height: 1.17;
+}
+.deleteBtn {
+	background: none;
+	background-image: url(/src/Icons/deleteIcon.svg);
+	background-position: 50%;
+	background-repeat: no-repeat;
+	border: none;
+	border-radius: 50px;
+	height: 28px;
+	transition: all 0.25s linear;
+	width: 28px;
+}
+
+.mobNavLinksContainer {
+	display: flex;
+	background-color: var(--background-gray);
+	bottom: 0;
+	left: 50%;
+	max-width: 480px;
+	position: fixed;
+	/* -webkit-transform: translateX(-50%); */
+	transform: translateX(-50%);
+	width: 100%;
+}
+
+.navLink {
+	height: 53px;
+	width: 50%;
+	text-decoration: none;
+	color: inherit;
+	align-items: center;
+	display: flex;
+	font-size: 12px;
+	font-weight: 700;
+	justify-content: center;
+	letter-spacing: 0.02em;
+	line-height: 1.17;
+	text-transform: uppercase;
+}
+
+.navLink:hover,
+.navLink:focus {
+	background: var(--orange);
+	color: #ffffff;
+	transition: all 0.25s linear;
+}

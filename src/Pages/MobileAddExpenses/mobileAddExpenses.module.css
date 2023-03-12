@@ -1,0 +1,18 @@
+.section {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	height: 350px;
+	margin-bottom: 54px;
+	padding: 20px;
+	background-color: var(--background-gray);
+	border-bottom-left-radius: 110px;
+}
+
+.backToMainPage {
+	margin-bottom: 20px;
+	align-self: baseline;
+	width: 18px;
+	height: 12px;
+	text-decoration: none;
+}

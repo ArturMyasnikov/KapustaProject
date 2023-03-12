@@ -1,11 +1,31 @@
-.table {
-	width: 624px;
-	height: 382px;
+.tableWrapper {
+	display: flex;
+	flex-direction: column;
 	margin-top: 48px;
+}
+
+@media screen and (min-width: 767px) {
+	.tableWrapper {
+		margin-bottom: 60px;
+	}
+}
+
+@media screen and (min-width: 1279px) {
+	.tableWrapper {
+		width: 746px;
+	}
+}
+
+table {
+	border-spacing: 0;
+	width: 100%;
+}
+
+.table {
 	border-collapse: collapse;
 	font-family: 'Roboto';
 	font-size: 12px;
-	border-radius: 20px 20px 0 0;
+	border-radius: 20px 20px 0px;
 	border-spacing: 0;
 }
 
@@ -17,12 +37,49 @@
 	text-transform: uppercase;
 }
 
+.tableHeadEmpty {
+	width: 20px;
+	border-top-right-radius: 20px;
+}
+
+.tableHeadDate {
+	width: 78px;
+}
+
+.tableHeadDescription {
+	width: 173px;
+}
+
+.tableHeadCategory {
+	text-align: initial;
+	width: 128px;
+}
+
+.tableHeadSum {
+	text-align: inherit;
+	width: 108px;
+}
+
+.tableHeadDelete {
+	width: 50px;
+}
+
+.mainTable {
+	border-collapse: collapse;
+}
+
+.tableBody {
+	height: 360px;
+	overflow-x: hidden;
+}
+
 .tableRow {
 	height: 40px;
 	border-bottom: 2px solid #f5f6fb;
 	border-left: 2px solid #f5f6fb;
 	border-right: 4px solid #f5f6fb;
 	text-align: center;
+	color: #52555f;
 }
 
 .table tr th:first-child {
@@ -33,60 +90,35 @@
 	border-radius: 0 20px 0 0;
 }
 
-/* .table tbody tr:last-child td:first-child {
-	border-radius: 0 0 0 10px;
-}
-.table tbody tr:last-child td:last-child {
-	border-radius: 0 10px 10px 0;
-} */
-/* 
-.zuiTable {
-	height: 382px;
-	margin-top: 48px;
-	border: solid 1px #ddeeee;
-	border-collapse: collapse;
-	border-spacing: 0;
-	font: normal 12px 'Roboto';
+.deleteIcon {
+	padding: 0;
+	width: 32px;
+	height: 32px;
+	border: none;
+	background: inherit;
+	background-repeat: no-repeat;
+	background-position-y: 50%;
+	background-position-x: 50%;
+	background-image: url('../../Icons/deleteIcon.svg');
+	cursor: pointer;
 }
 
-.zuiTable thead th {
-	background-color: #ddefef;
-	border: solid 1px #ddeeee;
-	color: #336b6b;
-	padding: 10px;
-	text-align: left;
-	text-shadow: 1px 1px 1px #fff;
+.wrap {
+	height: 360px;
+	width: 100%;
 }
 
-.zuiTable tbody td {
-	border: solid 1px #ddeeee;
-	color: #333;
-	padding: 10px;
-	text-shadow: 1px 1px 1px #fff;
+.tableDescription {
+	max-width: 120px;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
-.zuiTableRounded {
-	border: none;
+.tableSum {
+	font-weight: 700;
+	color: #e7192e;
 }
-.zuiTableRounded thead th {
-	background-color: #cfad70;
-	border: none;
-	text-shadow: 1px 1px 1px #ccc;
-	color: #333;
+
+.tableSumIncome {
+	font-weight: 700;
+	color: #407946;
 }
-.zuiTableRounded thead th:first-child {
-	border-radius: 10px 0 0 0;
-}
-.zuiTableRounded thead th:last-child {
-	border-radius: 0 10px 0 0;
-}
-.zuiTableRounded tbody td {
-	border: none;
-	border-top: solid 1px #957030;
-	background-color: #eed592;
-}
-.zuiTableRounded tbody tr:last-child td:first-child {
-	border-radius: 0 0 0 10px;
-}
-.zuiTableRounded tbody tr:last-child td:last-child {
-	border-radius: 0 0 10px 0;
-} */
