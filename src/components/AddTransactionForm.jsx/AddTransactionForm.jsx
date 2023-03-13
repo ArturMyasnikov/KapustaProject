@@ -11,7 +11,7 @@ const defaultTransactionValues = {
 	amount: '',
 };
 
-export default function AddTransactionForm({ setExpenses, setIncome, value }) {
+export default function AddTransactionForm({ categories, setExpenses = () => {}, setIncome, value }) {
 	const [transaction, setTransaction] = useState(defaultTransactionValues);
 
 	const handleInputChange = event => {
@@ -25,6 +25,7 @@ export default function AddTransactionForm({ setExpenses, setIncome, value }) {
 			...transaction,
 			date: formatDate(transaction.date),
 		};
+
 		if (value === '1') {
 			await postTransactionExpense(prepareData).then(expense => {
 				if (expense) {
@@ -82,6 +83,7 @@ export default function AddTransactionForm({ setExpenses, setIncome, value }) {
 						<SelectComponent
 							onSaveTransaction={onSaveTransaction}
 							value={transaction.category}
+							categories={categories}
 							setTransaction={setTransaction}
 						/>
 					</div>

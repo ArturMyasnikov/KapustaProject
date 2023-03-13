@@ -62,16 +62,8 @@ export default function SelectComponent({
 	setIncome,
 	value,
 	setTransaction,
+	categories,
 }) {
-	const [categories, setCategories] = useState([]);
-
-	useEffect(() => {
-		fetchExpensesCategories().then(expenses => {
-			if (Array.isArray(expenses)) {
-				setCategories(expenses);
-			}
-		});
-	}, []);
 
 	const handleSelectChange = event => {
 		setTransaction(prevState => ({
