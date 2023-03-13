@@ -6,7 +6,7 @@ export default function Summary() {
 			<div className={s.wrapper}>
 				<div className={s.summary}>
 					<div className={s.titleWrap}>
-						<p className={s.title}>Summary</p>
+						<p className={s.title}>Summaryy</p>
 					</div>
 					<ul className={s.list}>
 						<li className={s.item}>DECEMBER</li>
