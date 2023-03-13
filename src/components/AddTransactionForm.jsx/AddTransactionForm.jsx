@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import SelectComponent from '../Select/Select';
 import { postTransactionExpense, postTransactionIncome } from '../../api';
 import s from './addTransactionForm.module.css';
@@ -20,13 +20,13 @@ export default function AddTransactionForm({ setExpenses, setIncome, value }) {
 		setTransaction(prevState => ({ ...prevState, [name]: value }));
 	};
 
-	const onSaveTransaction = () => {
+	const onSaveTransaction = async () => {
 		const prepareData = {
 			...transaction,
 			date: formatDate(transaction.date),
 		};
 		if (value === '1') {
-			postTransactionExpense(prepareData).then(expense => {
+			await postTransactionExpense(prepareData).then(expense => {
 				if (expense) {
 					setExpenses(prevState => {
 						return [...prevState, expense.transaction];
@@ -34,7 +34,7 @@ export default function AddTransactionForm({ setExpenses, setIncome, value }) {
 				}
 			});
 		} else {
-			postTransactionIncome(prepareData).then(income => {
+			await postTransactionIncome(prepareData).then(income => {
 				if (income) {
 					setIncome(prevState => {
 						return [...prevState, income.transaction];

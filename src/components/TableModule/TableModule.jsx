@@ -4,7 +4,7 @@ import { getExpenses, getIncome } from '../../api';
 // import SelectComponent from '../Select/Select';
 import Table from '../Table/Table';
 import SummaryForDesktop from '../Summary/SummaryForDesktop';
-// import { postTransactionExpense, postTransactionIncome } from '../../api';
+import { postTransactionExpense, postTransactionIncome } from '../../api';
 import s from './tableModule.module.css';
 import AddTransactionForm from '../AddTransactionForm.jsx/AddTransactionForm';
 
@@ -43,6 +43,43 @@ export default function TableModule({ expensesCategories, value }) {
 			}
 		});
 	}, []);
+
+	// function formatDate(date) {
+	// 	var d = new Date(date),
+	// 		month = '' + (d.getMonth() + 1),
+	// 		day = '' + d.getDate(),
+	// 		year = d.getFullYear();
+
+	// 	if (month.length < 2) month = '0' + month;
+	// 	if (day.length < 2) day = '0' + day;
+
+	// 	return [year, month, day].join('-');
+	// }
+
+	// const onSaveTransaction = () => {
+	// 	const prepareData = {
+	// 		...transaction,
+	// 		date: formatDate(transaction.date),
+	// 	};
+	// 	if (value === '1') {
+	// 		postTransactionExpense(prepareData).then(expense => {
+	// 			if (expense) {
+	// 				setExpenses(prevState => {
+	// 					return [...prevState, expense.transaction];
+	// 				});
+	// 			}
+	// 		});
+	// 	} else {
+	// 		postTransactionIncome(prepareData).then(income => {
+	// 			if (income) {
+	// 				setIncome(prevState => {
+	// 					return [...prevState, income.transaction];
+	// 				});
+	// 			}
+	// 		});
+	// 	}
+	// 	setTransaction(defaultTransactionValues);
+	// };
 
 	return (
 		<div className={s.table}>

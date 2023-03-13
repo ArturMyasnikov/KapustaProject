@@ -20,7 +20,6 @@ export default function MobileTable() {
 
 	useEffect(() => {
 		getExpenses().then(res => {
-			console.log('resLORAAAAAAAA', res);
 			if (Array.isArray(res?.expenses)) {
 				setExpenses(res.expenses);
 			}
