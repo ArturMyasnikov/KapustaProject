@@ -4,7 +4,7 @@ import { getExpenses, getIncome } from '../../api';
 // import SelectComponent from '../Select/Select';
 import Table from '../Table/Table';
 import SummaryForDesktop from '../Summary/SummaryForDesktop';
-import { postTransactionExpense, postTransactionIncome } from '../../api';
+// import { postTransactionExpense, postTransactionIncome } from '../../api';
 import s from './tableModule.module.css';
 import AddTransactionForm from '../AddTransactionForm.jsx/AddTransactionForm';
 
