@@ -11,7 +11,7 @@ export const axiosApi = axios.create({
 });
 
 let isRefreshRequest = true;
-// abcde
+
 axiosApi.interceptors.request.use(async config => {
 	const isOpenApi = checkIsOpenApi(config.url);
 
@@ -74,6 +74,7 @@ const validateJwt = async (jwt, config) => {
 				localStorage.setItem('sid', result.newSid);
 
 				isRefreshRequest = true;
+				window.location.reload();
 			}
 
 			return result;
