@@ -61,9 +61,12 @@ const validateJwt = async (jwt, config) => {
 		const decodedJwt = await jwtDecode(jwt);
 		const timeNowSeconds = Math.round(new Date().getTime() / 1000);
 
+		console.log('decodedJwt', decodedJwt);
+		console.log('decodedJwt.exp < timeNowSeconds', decodedJwt.exp < timeNowSeconds);
 		if (decodedJwt.exp < timeNowSeconds) {
 			let result;
 
+			console.log('isRefreshRequest', isRefreshRequest);
 			if (isRefreshRequest) {
 				isRefreshRequest = false;
 
@@ -74,7 +77,9 @@ const validateJwt = async (jwt, config) => {
 				localStorage.setItem('sid', result.newSid);
 
 				isRefreshRequest = true;
-				window.location.reload();
+				if (result?.newAccessToken) {
+					window.location.reload();
+				}
 			}
 
 			return result;
